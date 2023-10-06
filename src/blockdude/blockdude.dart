@@ -1,6 +1,6 @@
 import 'dart:html';
 import 'package:old_school/old_school.dart';
-import 'package:old_school/characters/box.dart' as Box;
+import 'package:old_school/special_characters.dart' as Character;
 import 'patterns.dart' show patterns, PatternKey;
 import 'levels.dart' show levels, passwords;
 
@@ -43,41 +43,39 @@ bool drawLevel(final int levelIndex) {
   {
     int getIndex(bool p, bool q) => (p ? 1 : 0) + 2 * (q ? 1 : 0);
     final topLeft = [
-          Box.lightDownRight,
-          Box.lightDownHorizontal,
-          Box.lightVerticalRight,
-          Box.lightVerticalHorizontal
+          Character.downRight,
+          Character.downHorizontal,
+          Character.verticalRight,
+          Character.verticalHorizontal
         ][getIndex(levelData.openLeft, levelData.openTop)],
         topRight = [
-          Box.lightDownLeft,
-          Box.lightDownHorizontal,
-          Box.lightVerticalLeft,
-          Box.lightVerticalHorizontal
+          Character.downLeft,
+          Character.downHorizontal,
+          Character.verticalLeft,
+          Character.verticalHorizontal
         ][getIndex(levelData.openRight, levelData.openTop)],
         bottomLeft = [
-          Box.lightUpRight,
-          Box.lightUpHorizontal,
-          Box.lightVerticalRight,
-          Box.lightVerticalHorizontal
+          Character.upRight,
+          Character.upHorizontal,
+          Character.verticalRight,
+          Character.verticalHorizontal
         ][getIndex(levelData.openLeft, levelData.openBottom)],
         bottomRight = [
-          Box.lightUpLeft,
-          Box.lightUpHorizontal,
-          Box.lightVerticalLeft,
-          Box.lightVerticalHorizontal
+          Character.upLeft,
+          Character.upHorizontal,
+          Character.verticalLeft,
+          Character.verticalHorizontal
         ][getIndex(levelData.openRight, levelData.openBottom)],
         top = levelData.openTop
-            ? Box.lightDoubleDashHorizontal
-            : Box.lightHorizontal,
+            ? Character.doubleHorizontal
+            : Character.horizontal,
         bottom = levelData.openBottom
-            ? Box.lightDoubleDashHorizontal
-            : Box.lightHorizontal,
-        left = levelData.openLeft
-            ? Box.lightDoubleDashVertical
-            : Box.lightVertical,
-        right = levelData.openRight
-            ? Box.lightDoubleDashVertical
-            : Box.lightVertical;
+            ? Character.doubleHorizontal
+            : Character.horizontal,
+        left =
+            levelData.openLeft ? Character.doubleVertical : Character.vertical,
+        right =
+            levelData.openRight ? Character.doubleVertical : Character.vertical;
     terminal
       ..clear()
       ..output("L${levelIndex + 1}", row: row - 1, column: column + 1)
@@ -164,7 +162,7 @@ void centerMessage(String message, int row) {
 }
 
 void line(int row) {
-  terminal.output(Box.lightHorizontal * terminal.columns,
+  terminal.output(Character.horizontal * terminal.columns,
       row: row, column: 0, newLineAfter: false);
 }
 
