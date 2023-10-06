@@ -1,0 +1,24 @@
+# mac
+.DS_Store
+
+# pub
+.dart_tool/
+.packages
+build/
+
+pubspec.lock
+
+# dartdoc
+doc/api/
+
+*.info.json 
+
+*.js.deps
+*.js.map
+
+
+
+play*
+delete*
+scratch*
+tool/compile_examples.sh
