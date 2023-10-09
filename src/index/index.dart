@@ -36,6 +36,11 @@ void main() async {
         "wordle": [
           "Word Logic is a Wordle clone that demonstrates a fairly",
           "complex program running in the terminal.",
+        ],
+        "four": [
+          "This is the classic game of connect-four. The computer",
+          "uses background Monte Carlo simulations to play a fairly",
+          "intelligent game.",
         ]
       },
       rInfo = RegExp(r"^ *info +(.+) *$"),

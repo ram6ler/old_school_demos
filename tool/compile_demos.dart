@@ -8,6 +8,7 @@ main() async {
     "snake",
     "sokoban",
     "wordle",
+    "four",
   ]) {
     print("Compiling $demo...");
     final result = await Process.run("dart", [
