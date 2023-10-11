@@ -1,7 +1,23 @@
+@keyframes scroll {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 250px 250px;
+  }
+}
+
 body {
   background-image: url("old-school.png");
   background-repeat: repeat;
+  animation-name: scroll;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
 }
+
 
 .container {
   position: absolute;
