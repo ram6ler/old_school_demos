@@ -1,4 +1,5 @@
-import 'dart:html';
+import "dart:math" show Rectangle;
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart';
 import 'package:old_school/special_characters.dart' as Character;
 import 'patterns.dart' show patterns, PatternKey;
@@ -7,7 +8,7 @@ import 'levels.dart' show levels, passwords;
 final terminal = Terminal(
   rows: 16,
   columns: 14,
-  container: document.getElementById("blockdude")!,
+  container: web.document.getElementById("blockdude")! as web.HTMLElement,
   defaultColor: "#121",
   backgroundColor: "rgb(158,172,135)",
   pixelWidth: 3,
@@ -220,7 +221,7 @@ main() async {
 
   while (true) {
     final keyCode = (await terminal.inputKey()).keyCode;
-    if (keyCode == KeyCode.ESC) {
+    if (keyCode == web.KeyCode.ESC) {
       final index = await getPassword();
       if (index == -1) {
         drawLevel(level);

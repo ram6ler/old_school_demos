@@ -1,13 +1,13 @@
 import 'dart:async';
-import 'dart:html';
 import 'dart:math' show Random;
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart';
 import 'wordle_words.dart';
 
 final gameTerminal = Terminal(
   rows: 30,
   columns: 40,
-  container: document.getElementById("wordle")! as DivElement,
+  container: web.document.getElementById("wordle")! as web.HTMLDivElement,
   isInteractive: true,
   rowGap: 2,
 );
@@ -221,5 +221,5 @@ main() async {
     ..clear()
     ..output("Bye bye!")
     ..output("Hope you had fun!");
-  Timer(Duration(seconds: 3), () => window.open("index.html", "_self"));
+  Timer(Duration(seconds: 3), () => web.window.open("index.html", "_self"));
 }

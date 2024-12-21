@@ -1,5 +1,5 @@
-import 'dart:html';
 import 'dart:math' show Random;
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart';
 // import 'package:old_school/characters/block.dart' show full;
 // import 'package:old_school/characters/extended.dart' show smileyFaceFilled;
@@ -201,7 +201,8 @@ void main() async {
           pixelHeight: 2,
           pixelWidth: 2,
           backgroundColor: "#666",
-          container: document.getElementById("sokoban")!),
+          container:
+              web.document.getElementById("sokoban")! as web.HTMLElement),
       sokoban = Sokoban(terminal);
   terminal.focus();
   while (true) {
@@ -214,21 +215,21 @@ void main() async {
         sokoban.refresh(levelIndex + 1);
         final keyCode = (await terminal.inputKey()).keyCode;
         switch (keyCode) {
-          case KeyCode.LEFT:
+          case web.KeyCode.LEFT:
             sokoban.tryMove(Direction.left);
-          case KeyCode.RIGHT:
+          case web.KeyCode.RIGHT:
             sokoban.tryMove(Direction.right);
-          case KeyCode.UP:
+          case web.KeyCode.UP:
             sokoban.tryMove(Direction.up);
-          case KeyCode.DOWN:
+          case web.KeyCode.DOWN:
             sokoban.tryMove(Direction.down);
-          case KeyCode.ESC:
+          case web.KeyCode.ESC:
             sokoban.reset(level);
-          case KeyCode.ENTER:
+          case web.KeyCode.ENTER:
             if (levelIndex < levels.length - 1) {
               cheat = true;
             }
-          case KeyCode.BACKSPACE:
+          case web.KeyCode.BACKSPACE:
             if (levelIndex > 0) {
               levelIndex -= 2;
               cheat = true;

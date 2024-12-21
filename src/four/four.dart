@@ -1,5 +1,5 @@
-import 'dart:html';
 import 'dart:math' show Random;
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart' show Terminal;
 
 const rows = 6, columns = 7;
@@ -9,7 +9,7 @@ final rand = Random();
 final terminal = Terminal(
   rows: 15,
   columns: 31,
-  container: document.getElementById("four")!,
+  container: web.document.getElementById("four")! as web.HTMLElement,
   backgroundColor: "#1f1f1f",
 )..focus();
 

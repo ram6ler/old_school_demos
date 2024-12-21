@@ -1,6 +1,6 @@
-import 'dart:html';
-import 'dart:math' show Random;
+import 'dart:math' show Random, Point;
 import 'dart:async' show Timer;
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart' show Terminal;
 
 enum Value { nothing, apple, up, down, left, right, brick }
@@ -13,7 +13,7 @@ class Snake {
   Snake(
     this.rows,
     this.columns,
-    Element container,
+    web.HTMLElement container,
   ) : values = [
           for (var _ = 0; _ < rows; _++)
             [for (var _ = 0; _ < columns; _++) Value.nothing]
@@ -35,28 +35,28 @@ class Snake {
             newGame();
           case GameState.play:
             switch (data.keyCode) {
-              case KeyCode.UP:
+              case web.KeyCode.UP:
                 if (inputDirection != Value.down &&
                     inputDirection != Value.up &&
                     allow(headRow - 1, headColumn)) {
                   inputDirection = Value.up;
                   appleValue -= 1;
                 }
-              case KeyCode.DOWN:
+              case web.KeyCode.DOWN:
                 if (inputDirection != Value.up &&
                     inputDirection != Value.down &&
                     allow(headRow + 1, headColumn)) {
                   inputDirection = Value.down;
                   appleValue -= 1;
                 }
-              case KeyCode.LEFT:
+              case web.KeyCode.LEFT:
                 if (inputDirection != Value.right &&
                     inputDirection != Value.left &&
                     allow(headRow, headColumn - 1)) {
                   inputDirection = Value.left;
                   appleValue -= 1;
                 }
-              case KeyCode.RIGHT:
+              case web.KeyCode.RIGHT:
                 if (inputDirection != Value.left &&
                     inputDirection != Value.right &&
                     allow(headRow, headColumn + 1)) {
@@ -331,6 +331,6 @@ main() {
   Snake(
     30,
     30,
-    document.getElementById("snake")!,
+    web.document.getElementById("snake")! as web.HTMLElement,
   );
 }

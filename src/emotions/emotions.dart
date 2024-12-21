@@ -1,5 +1,5 @@
-import 'dart:html';
 import 'dart:math' show Random;
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart';
 import 'graphics.dart';
 
@@ -7,7 +7,7 @@ final rand = Random(),
     terminal = Terminal(
       rows: 24,
       columns: 20,
-      container: document.getElementById("emotions")!,
+      container: web.document.getElementById("emotions")! as web.HTMLElement,
       isInteractive: true,
       rowGap: 0,
       pixelWidth: 3,

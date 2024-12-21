@@ -1,4 +1,4 @@
-import 'dart:html';
+import "package:web/web.dart" as web;
 import 'package:old_school/old_school.dart';
 
 void main() async {
@@ -6,7 +6,7 @@ void main() async {
   final terminal = Terminal(
         rows: 35,
         columns: 60,
-        container: document.getElementById("index")!,
+        container: web.document.getElementById("index")! as web.HTMLElement,
       )
         ..blur()
         ..focus(),
@@ -115,7 +115,7 @@ void main() async {
 
   void load(String key) {
     if (demos.keys.contains(key)) {
-      window.open("$key.html", "_self");
+      web.window.open("$key.html", "_self");
     } else {
       terminal
         ..newLine()
