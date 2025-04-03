@@ -19,7 +19,7 @@ main() async {
       "src/$demo/$demo.dart",
       "-O3",
       "-o",
-      "games/js/$demo.js",
+      "docs/js/$demo.js",
     ]);
     stdout.write(result.stdout);
     stderr.write(result.stderr);
