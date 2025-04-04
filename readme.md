@@ -1,6 +1,6 @@
 # Old School Demos
 
-Old School is a Dart library for inserting old school terminals into your html documents.
+[OldSchool](https://github.com/ram6ler/old_school) is a Dart library for inserting old school terminals into your html documents.
 
 This repo contains a set of Old School demos.
 
