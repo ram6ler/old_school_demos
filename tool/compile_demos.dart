@@ -1,17 +1,23 @@
 import "dart:io";
 
-main() async {
-  for (final demo in [
-    "blockdude",
-    "bounce",
-    "emotions",
-    "index",
-    "mine",
-    "snake",
-    "sokoban",
-    "wordle",
-    "four",
-  ]) {
+main(final List<String> args) async {
+  final demos = args.isEmpty
+      ? [
+          "blockdude",
+          "bounce",
+          "emotions",
+          "index",
+          "mine",
+          "othello",
+          "salad",
+          "snake",
+          "sokoban",
+          "wordle",
+          "four",
+        ]
+      : args;
+
+  for (final demo in demos) {
     print("Compiling $demo...");
     final result = await Process.run("dart", [
       "compile",

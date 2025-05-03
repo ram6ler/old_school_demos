@@ -1,0 +1,27 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "old_school",
+      "rootUri": "file:///Users/richardambler/.pub-cache/hosted/pub.dev/old_school-0.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
+      "name": "web",
+      "rootUri": "file:///Users/richardambler/.pub-cache/hosted/pub.dev/web-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "old_school_demos",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    }
+  ],
+  "generated": "2025-05-02T04:01:41.683217Z",
+  "generator": "pub",
+  "generatorVersion": "3.7.3",
+  "pubCache": "file:///Users/richardambler/.pub-cache"
+}

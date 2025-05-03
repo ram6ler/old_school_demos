@@ -37,13 +37,17 @@ void main() async {
         "mine": [
           "A minesweep clone.",
         ],
-        "sokoban": [
-          "Mother Hen is a Sokoban clone that demonstrates poking",
-          "simple sprite data into the terminal graphics memory.",
+        "othello": [
+          "The game of Othello (Reversi).",
         ],
+        "salad": ["Given definitions, find the words in a grid", "of letters."],
         "snake": [
           "Snake is version of the infamous snake game that",
           "demonstrates non interrupting keyboard input.",
+        ],
+        "sokoban": [
+          "Mother Hen is a Sokoban clone that demonstrates poking",
+          "simple sprite data into the terminal graphics memory.",
         ],
         "wordle": [
           "Word Logic is a Wordle clone that demonstrates a fairly",

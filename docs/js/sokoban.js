@@ -3466,7 +3466,7 @@ m.A(0,n,m.m(0,n)===B.k?B.h:B.j)
 m.A(0,k,m.m(0,k)===B.h?B.k:B.m)
 i.d.ae(0,A.a([new A.f(g,f),n,k],t.n))
 p.$0()
-break $label1$2}break $label1$2}break $label0$1}break $label0$1}},
+break $label1$2}}break $label0$1}}},
 aZ(a){var s,r,q,p,o,n,m,l,k,j,i=this,h="Moves: "+i.r,g=i.a
 g.K("Mother Hen",B.a.t(g.b-10,2),!1,1)
 g.K("Level "+a,1,!1,-2)
