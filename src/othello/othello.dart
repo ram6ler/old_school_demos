@@ -1,3 +1,5 @@
+import "dart:isolate";
+
 import "package:web/web.dart" as web;
 import "package:old_school/old_school.dart" as os;
 import "package:old_school/special_characters.dart" as sc;
@@ -233,6 +235,4 @@ class Game {
   }
 }
 
-Future<void> main() async {
-  await (Game()..terminal.focus()).play();
-}
+Future<void> main() => (Game()..terminal.focus()).play();

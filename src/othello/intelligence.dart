@@ -26,10 +26,15 @@ Future<(int row, int column)> getBestMove(
   OthelloState othello,
   Mode mode,
 ) async {
+  const chunkSize = 5;
   final moves = othello.legalMoves,
       differences = {for (final move in moves) move: 0.0};
 
   for (var i = 0; i < mode.simulations ~/ moves.length; i++) {
+    // Prevent browser freezing.
+    if (i % chunkSize == 0) {
+      await Future.delayed(Duration.zero);
+    }
     for (final (row, column) in moves) {
       final (:white, :black) = randomMoveScores(
         OthelloState.from(othello)..moveTo(row, column),
