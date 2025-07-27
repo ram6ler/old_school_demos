@@ -5,7 +5,7 @@ final egg = Sprite(
       layers: [
         Layer(
           mode: Mode.replace,
-          color: "rgb(240,185,130)",
+          color: 'rgb(240,185,130)',
           data: [
             0x0000,
             0x03C0,
@@ -26,7 +26,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(245,215,190)",
+          color: 'rgb(245,215,190)',
           data: [
             0x0000,
             0x0000,
@@ -47,7 +47,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(130,60,50)",
+          color: 'rgb(130,60,50)',
           data: [
             0x0000,
             0x03C0,
@@ -74,7 +74,7 @@ final egg = Sprite(
       layers: [
         Layer(
           mode: Mode.replace,
-          color: "rgb(250,195,70)",
+          color: 'rgb(250,195,70)',
           data: [
             0x0180,
             0x0380,
@@ -88,7 +88,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(240,115,40)",
+          color: 'rgb(240,115,40)',
           data: [
             0x0000,
             0x0000,
@@ -103,7 +103,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "white",
+          color: 'white',
           data: [
             0x0000,
             0x0000,
@@ -116,7 +116,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(130,60,50)",
+          color: 'rgb(130,60,50)',
           data: [
             0x0180,
             0x0280,
@@ -130,7 +130,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(130,60,50)",
+          color: 'rgb(130,60,50)',
           data: [
             0x0180,
             0x0280,
@@ -144,7 +144,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(240,185,130)",
+          color: 'rgb(240,185,130)',
           data: [
             0x0000,
             0x0000,
@@ -165,7 +165,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(245,215,190)",
+          color: 'rgb(245,215,190)',
           data: [
             0x0000,
             0x0000,
@@ -186,7 +186,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(130,60,50)",
+          color: 'rgb(130,60,50)',
           data: [
             0x0000,
             0x0000,
@@ -213,7 +213,7 @@ final egg = Sprite(
       layers: [
         Layer(
           mode: Mode.replace,
-          color: "rgb(240,185,130)",
+          color: 'rgb(240,185,130)',
           data: [
             0x0000,
             0x0000,
@@ -234,7 +234,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(195,115,55)",
+          color: 'rgb(195,115,55)',
           data: [
             0x0000,
             0x0000,
@@ -253,7 +253,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(240,100,135)",
+          color: 'rgb(240,100,135)',
           data: [
             0x0700,
             0x0F80,
@@ -261,7 +261,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(175,45, 25)",
+          color: 'rgb(175,45, 25)',
           data: [
             0x0700,
             0x0980,
@@ -269,7 +269,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "white",
+          color: 'white',
           data: [
             0x0000,
             0x0000,
@@ -281,7 +281,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(230,120,30)",
+          color: 'rgb(230,120,30)',
           data: [
             0x0000,
             0x0000,
@@ -301,7 +301,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(130,60,50)",
+          color: 'rgb(130,60,50)',
           data: [
             0x0000,
             0x0000,
@@ -328,7 +328,7 @@ final egg = Sprite(
       layers: [
         Layer(
           mode: Mode.replace,
-          color: "rgb(205,145,95)",
+          color: 'rgb(205,145,95)',
           data: [
             0xFFFF,
             0xFFFF,
@@ -349,7 +349,7 @@ final egg = Sprite(
           ],
         ),
         Layer(
-          color: "rgb(155,100,45)",
+          color: 'rgb(155,100,45)',
           data: [
             0xE3E3,
             0x1414,
@@ -376,7 +376,7 @@ final egg = Sprite(
       layers: [
         Layer(
           mode: Mode.replace,
-          color: "#999",
+          color: '#999',
           data: [
             0x0000,
             0x0000,
@@ -403,7 +403,7 @@ final egg = Sprite(
       layers: [
         Layer(
           mode: Mode.replace,
-          color: "yellow",
+          color: 'yellow',
           data: [
             0x0000,
             0x0000,

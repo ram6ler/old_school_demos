@@ -8,7 +8,7 @@ enum Player {
       };
 
   String get symbol => switch (this) {
-        cross => "X",
-        naught => "O",
+        cross => 'X',
+        naught => 'O',
       };
 }

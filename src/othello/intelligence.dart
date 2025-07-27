@@ -1,8 +1,8 @@
-import "dart:math" show Random;
+import 'dart:math' show Random;
 
-import "player.dart" show Player;
-import "othello_state.dart" show OthelloState;
-import "mode.dart" show Mode;
+import 'player.dart' show Player;
+import 'othello_state.dart' show OthelloState;
+import 'mode.dart' show Mode;
 
 ({int white, int black}) randomMoveScores(OthelloState othello, [int? seed]) {
   final rand = Random(seed);

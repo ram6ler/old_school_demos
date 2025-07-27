@@ -1,5 +1,5 @@
 import 'dart:math' show Random;
-import "package:web/web.dart" as web;
+import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart';
 import 'graphics.dart';
 
@@ -7,14 +7,14 @@ final rand = Random(),
     terminal = Terminal(
       rows: 24,
       columns: 20,
-      container: web.document.getElementById("emotions")! as web.HTMLElement,
+      container: web.document.getElementById('emotions')! as web.HTMLElement,
       isInteractive: true,
       rowGap: 0,
       pixelWidth: 3,
       pixelHeight: 3,
-      defaultColor: "lightgray",
+      defaultColor: 'lightgray',
     )..output(
-        "Mixed Emotions!",
+        'Mixed Emotions!',
         row: 2,
         column: 3,
       );
@@ -35,14 +35,14 @@ void main() async {
     }
     board.display();
     terminal.output(
-      "Congratulations!",
+      'Congratulations!',
       row: -3,
       column: 2,
     );
 
     await terminal.inputMouseClick();
     terminal.output(
-      " " * 16,
+      ' ' * 16,
       row: -3,
       column: 2,
     );
@@ -198,7 +198,7 @@ void drawFace(
 class Board {
   Board()
       : positions = randomPieces(),
-        pieces = [for (var _ = 0; _ < 16; _++) 0],
+        pieces = [for (final _ in Iterable.generate(16)) 0],
         zeroRow = 0,
         zeroColumn = 0 {
     for (var i = 0; i < 16; i++) {
@@ -235,7 +235,7 @@ class Board {
   }
 
   void shuffle() {
-    for (var _ = 0; _ < 250; _++) {
+    for (final _ in Iterable.generate(250)) {
       var r = -1, c = -1;
       while (r != zeroRow && c != zeroColumn) {
         r = rand.nextInt(4);

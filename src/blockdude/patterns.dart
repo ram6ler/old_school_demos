@@ -1,16 +1,16 @@
 // See https://www.detachedsolutions.com/puzzpack/blockdude.php
 // and https://www.ticalc.org/archives/files/fileinfo/147/14712.html
 abstract class PatternKey {
-  static const blank = "blank",
-      brick = "brick",
-      block = "block",
-      door = "door",
-      heroLeft = "manl",
-      heroRight = "manr";
+  static const blank = 'blank',
+      brick = 'brick',
+      block = 'block',
+      door = 'door',
+      heroLeft = 'manl',
+      heroRight = 'manr';
 }
 
 const patterns = {
-  "blank": [
+  'blank': [
     0x00, // ........
     0x00, // ........
     0x00, // ........
@@ -20,7 +20,7 @@ const patterns = {
     0x00, // ........
     0x00, // ........
   ],
-  "brick": [
+  'brick': [
     0xFB, // *****.**
     0xFB, // *****.**
     0x00, // ........
@@ -30,7 +30,7 @@ const patterns = {
     0xFB, // *****.**
     0xFB, // *****.**
   ],
-  "block": [
+  'block': [
     0xFF, // ********
     0x81, // *......*
     0x81, // *......*
@@ -40,7 +40,7 @@ const patterns = {
     0x81, // *......*
     0xFF, // ********
   ],
-  "door": [
+  'door': [
     0x7E, // .******.
     0x42, // .*....*.
     0x42, // .*....*.
@@ -50,7 +50,7 @@ const patterns = {
     0x42, // .*....*.
     0x7E, // .******.
   ],
-  "manl": [
+  'manl': [
     0x1C, // ...***..
     0x7E, // .******.
     0x12, // ...*..*.
@@ -60,7 +60,7 @@ const patterns = {
     0x08, // ....*...
     0x36, // ..**.**.
   ],
-  "manr": [
+  'manr': [
     0x38, // ..***...
     0x7E, // .******.
     0x48, // .*..*...

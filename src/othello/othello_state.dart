@@ -1,5 +1,5 @@
-import "direction.dart";
-import "player.dart";
+import 'direction.dart';
+import 'player.dart';
 
 class OthelloState {
   /// The bit index associated with cell at (row, column).
@@ -10,7 +10,7 @@ class OthelloState {
       row >= 0 && row < 8 && column >= 0 && column < 8;
 
   /// A bit field with all bits set.
-  static final allBits = BigInt.parse("FFFFFFFFFFFFFFFF", radix: 16);
+  static final allBits = BigInt.parse('FFFFFFFFFFFFFFFF', radix: 16);
 
   /// Bit field representing cells occupied by nought tokens.
   var noughtTokens = BigInt.zero;
@@ -147,22 +147,22 @@ class OthelloState {
   @override
   String toString() {
     final sb = StringBuffer(
-      "  ${[for (var c = 0; c < 8; c++) c.toString()].join(" ")}\n",
+      '  ${[for (var c = 0; c < 8; c++) c.toString()].join(' ')}\n',
     );
 
     for (var r = 0; r < 8; r++) {
-      sb.write("$r ");
+      sb.write('$r ');
       for (var c = 0; c < 8; c++) {
         final i = bitOffset(r, c);
         if (noughtTokens & (BigInt.one << i) > BigInt.zero) {
-          sb.write("o ");
+          sb.write('o ');
         } else if (crossTokens & (BigInt.one << i) > BigInt.zero) {
-          sb.write("x ");
+          sb.write('x ');
         } else {
-          sb.write(". ");
+          sb.write('. ');
         }
       }
-      sb.write("\n");
+      sb.write('\n');
     }
     return sb.toString();
   }

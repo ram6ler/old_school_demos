@@ -1,9 +1,9 @@
-import "dart:math" show Random;
-import "words.dart" show Word, randomWord;
+import 'dart:math' show Random;
+import 'words.dart' show Word, randomWord;
 
 const debug = true,
-    empty = ".",
-    letters = "abcdefghijklmnopqrstuvwxyz",
+    empty = '.',
+    letters = 'abcdefghijklmnopqrstuvwxyz',
     gridWidth = 9,
     wordsPerWorm = 5,
     attempts = 100;
@@ -18,28 +18,28 @@ enum Direction {
   none;
 
   (int, int) get move => switch (this) {
-    north => (-1, 0),
-    east => (0, 1),
-    south => (1, 0),
-    west => (0, -1),
-    none => (0, 0),
-  };
+        north => (-1, 0),
+        east => (0, 1),
+        south => (1, 0),
+        west => (0, -1),
+        none => (0, 0),
+      };
 
   Direction get reverse => switch (this) {
-    north => south,
-    east => west,
-    south => north,
-    west => east,
-    none => none,
-  };
+        north => south,
+        east => west,
+        south => north,
+        west => east,
+        none => none,
+      };
 
   String get name => switch (this) {
-    north => "N",
-    east => "E",
-    south => "S",
-    west => "W",
-    none => ".",
-  };
+        north => 'N',
+        east => 'E',
+        south => 'S',
+        west => 'W',
+        none => '.',
+      };
 }
 
 class Letter {
@@ -47,7 +47,7 @@ class Letter {
   var letter = empty;
 
   /// A partial word containing the letters so far.
-  var partial = "";
+  var partial = '';
 
   /// The direction to the next letter in the sequence.
   var next = Direction.none;
@@ -57,7 +57,7 @@ class Letter {
 
   void clear() {
     letter = empty;
-    partial = "";
+    partial = '';
     next = Direction.none;
     word = null;
   }
@@ -65,7 +65,7 @@ class Letter {
   void update(Word word, int index, Direction next) {
     letter = word.word[index];
     final part = word.word.substring(0, index + 1);
-    partial = part + "-" * (word.word.length - part.length);
+    partial = part + '-' * (word.word.length - part.length);
     this
       ..next = next
       ..word = word;
@@ -92,7 +92,7 @@ class Position {
   }
 
   @override
-  String toString() => "($row $column)";
+  String toString() => '($row $column)';
 }
 
 class Grid {
@@ -101,10 +101,10 @@ class Grid {
   final currentPosition = Position();
 
   Grid()
-    : data = [
-        for (var r = 0; r < gridWidth; r++)
-          [for (var c = 0; c < gridWidth; c++) Letter()],
-      ];
+      : data = [
+          for (var r = 0; r < gridWidth; r++)
+            [for (var c = 0; c < gridWidth; c++) Letter()],
+        ];
 
   void clearData() {
     for (final row in data) {
@@ -159,7 +159,7 @@ class Grid {
           }
           if (possibleDirections.isEmpty) {
             if (debug) {
-              print("*** ABORTING!\n");
+              print('*** ABORTING!\n');
             }
             return false;
           }
@@ -169,20 +169,20 @@ class Grid {
 
           if (debug) {
             print(
-              "Placing ${word.word}[$i] = ${word.word[i]} at $currentPosition.",
+              'Placing ${word.word}[$i] = ${word.word[i]} at $currentPosition.',
             );
-            print("Chosen Direction: ${chosenDirection.name}.");
+            print('Chosen Direction: ${chosenDirection.name}.');
           }
           currentLetter.update(word, i, chosenDirection);
           currentPosition.moveInDirection(chosenDirection);
           if (debug) {
-            print("  Moved to $currentPosition.");
+            print('  Moved to $currentPosition.');
           }
           lastDirection = chosenDirection;
         }
       }
       if (debug) {
-        print("*** SUCCESS!\n");
+        print('*** SUCCESS!\n');
       }
       return true;
     }
@@ -192,7 +192,7 @@ class Grid {
       if (tryFill()) break;
     }
     if (i == attempts) {
-      throw Exception("Failed to position words in $attempts attempts.");
+      throw Exception('Failed to position words in $attempts attempts.');
     }
 
     // Remove transition from last cell.
@@ -224,23 +224,22 @@ class Grid {
   }
 
   List<(int, int)> get coordinates => [
-    for (var r = 0; r < gridWidth; r++)
-      for (var c = 0; c < gridWidth; c++) (r, c),
-  ];
+        for (var r = 0; r < gridWidth; r++)
+          for (var c = 0; c < gridWidth; c++) (r, c),
+      ];
 
-  void debugShow() => print([for (final row in data) row.join(" ")].join("\n"));
+  void debugShow() => print([for (final row in data) row.join(' ')].join('\n'));
 }
 
-main() {
-  final grid =
-      Grid()
-        ..refresh()
-        ..debugShow();
-  print("");
+void main() {
+  final grid = Grid()
+    ..refresh()
+    ..debugShow();
+  print('');
   void showInfo(Letter letter) => print(
-    "${grid.currentPosition} $letter "
-    "${letter.partial} ${letter.next.name}",
-  );
+        '${grid.currentPosition} $letter '
+        '${letter.partial} ${letter.next.name}',
+      );
   showInfo(grid.currentLetter);
   while (grid.moveToNextCell()) {
     showInfo(grid.currentLetter);

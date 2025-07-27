@@ -1,10 +1,10 @@
 import 'dart:math' show Random;
-import "package:web/web.dart" as web;
+import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart';
 // import 'package:old_school/characters/block.dart' show full;
 // import 'package:old_school/characters/extended.dart' show smileyFaceFilled;
-import "levels.dart";
-import "sprites.dart" as sprites;
+import 'levels.dart';
+import 'sprites.dart' as sprites;
 
 enum Thing {
   wall,
@@ -45,18 +45,18 @@ class Sokoban {
       for (var c = 0; c < design[r].length; c++) {
         if (c > _width) _width = c;
         switch (design[r][c]) {
-          case "-":
+          case '-':
             if (started) data[(r, c)] = Thing.space;
-          case "#":
+          case '#':
             started = true;
             data[(r, c)] = Thing.wall;
-          case r"$":
+          case r'$':
             data[(r, c)] = Thing.blockOnSpace;
-          case ".":
+          case '.':
             data[(r, c)] = Thing.goal;
-          case "*":
+          case '*':
             data[(r, c)] = Thing.blockOnGoal;
-          case "@":
+          case '@':
             position = (r, c);
             data[(r, c)] = Thing.space;
           case _:
@@ -113,8 +113,8 @@ class Sokoban {
   void refresh(int level) {
     // final rowOffset = (terminal.rows - height) ~/ 2,
     //     columnOffset = (terminal.columns - width) ~/ 2,
-    final heading = "Mother Hen",
-        moves = "Moves: $_moves",
+    final heading = 'Mother Hen',
+        moves = 'Moves: $_moves',
         headingOffset = (terminal.columns - heading.length) ~/ 2;
     terminal
       ..output(
@@ -124,7 +124,7 @@ class Sokoban {
         newLineAfter: false,
       )
       ..output(
-        "Level $level",
+        'Level $level',
         row: -2,
         column: 1,
         newLineAfter: false,
@@ -166,11 +166,11 @@ class Sokoban {
 
     // for (final (row, column) in _toUpdate) {
     //   final (character, color) = switch (data[(row, column)]!) {
-    //     Thing.wall => (full, "gray"),
-    //     Thing.space => (" ", "white"),
-    //     Thing.goal => ("#", "goldenrod"),
-    //     Thing.blockOnSpace => ("O", "lightyellow"),
-    //     Thing.blockOnGoal => ("O", "white"),
+    //     Thing.wall => (full, 'gray'),
+    //     Thing.space => (' ', 'white'),
+    //     Thing.goal => ('#', 'goldenrod'),
+    //     Thing.blockOnSpace => ('O', 'lightyellow'),
+    //     Thing.blockOnGoal => ('O', 'white'),
     //   };
     //   terminal.output(
     //     character,
@@ -184,7 +184,7 @@ class Sokoban {
     //   smileyFaceFilled,
     //   row: rowOffset + position.$1,
     //   column: columnOffset + position.$2,
-    //   color: "yellow",
+    //   color: 'yellow',
     //   newLineAfter: false,
     // );
     // _toUpdate.clear();
@@ -200,9 +200,9 @@ void main() async {
           rowGap: 0,
           pixelHeight: 2,
           pixelWidth: 2,
-          backgroundColor: "#666",
+          backgroundColor: '#666',
           container:
-              web.document.getElementById("sokoban")! as web.HTMLElement),
+              web.document.getElementById('sokoban')! as web.HTMLElement),
       sokoban = Sokoban(terminal);
   terminal.focus();
   while (true) {
@@ -238,7 +238,7 @@ void main() async {
       }
       sokoban.refresh(levelIndex + 1);
       if (!cheat) {
-        final message = "Congratulations!",
+        final message = 'Congratulations!',
             columnOffset = (terminal.columns - message.length) ~/ 2;
         terminal.output(
           message,

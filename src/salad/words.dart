@@ -1,4 +1,4 @@
-import "dart:math" show Random;
+import 'dart:math' show Random;
 
 final rand = Random();
 Word randomWord() => wordDefinitions[rand.nextInt(wordDefinitions.length)];
@@ -15,332 +15,332 @@ class Word {
 
 final wordDefinitions = <Word>[
   Word(
-    word: "abate",
+    word: 'abate',
     definitions: {
-      "v": ['to diminish in intensity', 'to cause to diminish in intensity'],
+      'v': ['to diminish in intensity', 'to cause to diminish in intensity'],
     },
   ),
   Word(
-    word: "aberrant",
+    word: 'aberrant',
     definitions: {
-      "adj": ['diverging from the standard type'],
+      'adj': ['diverging from the standard type'],
     },
   ),
   Word(
-    word: "abjure",
+    word: 'abjure',
     definitions: {
-      "v": ['to reject or renounce'],
+      'v': ['to reject or renounce'],
     },
   ),
   Word(
-    word: "abscond",
+    word: 'abscond',
     definitions: {
-      "v": ['to leave secretly, evading detection'],
+      'v': ['to leave secretly, evading detection'],
     },
   ),
   Word(
-    word: "abstain",
+    word: 'abstain',
     definitions: {
-      "v": ['to voluntarily refrain from doing something'],
+      'v': ['to voluntarily refrain from doing something'],
     },
   ),
   Word(
-    word: "acumen",
+    word: 'acumen',
     definitions: {
-      "n": ['keen judgment and perception'],
+      'n': ['keen judgment and perception'],
     },
   ),
   Word(
-    word: "admonish",
+    word: 'admonish',
     definitions: {
-      "v": ['scold or to advise firmly'],
+      'v': ['scold or to advise firmly'],
     },
   ),
   Word(
-    word: "adulterate",
+    word: 'adulterate',
     definitions: {
-      "v": ['to contaminate or make impure by introducing inferior elements'],
+      'v': ['to contaminate or make impure by introducing inferior elements'],
     },
   ),
   Word(
-    word: "advocate",
+    word: 'advocate',
     definitions: {
-      "v": ['to recommend, support, or advise'],
+      'v': ['to recommend, support, or advise'],
     },
   ),
   Word(
-    word: "aesthetic",
+    word: 'aesthetic',
     definitions: {
-      "adj": ['concerned with the nature of beauty and art'],
+      'adj': ['concerned with the nature of beauty and art'],
     },
   ),
   Word(
-    word: "affectation",
+    word: 'affectation',
     definitions: {
-      "n": ['false behavior, often meant to impress or conceal the truth'],
+      'n': ['false behavior, often meant to impress or conceal the truth'],
     },
   ),
   Word(
-    word: "aggrandize",
+    word: 'aggrandize',
     definitions: {
-      "v": ['enlarge or increase, esp wealth, power, reputation'],
+      'v': ['enlarge or increase, esp wealth, power, reputation'],
     },
   ),
   Word(
-    word: "alacrity",
+    word: 'alacrity',
     definitions: {
-      "n": ['promptness and eagerness'],
+      'n': ['promptness and eagerness'],
     },
   ),
   Word(
-    word: "alleviate",
+    word: 'alleviate',
     definitions: {
-      "v": ['to relieve a problem or ease a burden'],
+      'v': ['to relieve a problem or ease a burden'],
     },
   ),
   Word(
-    word: "amalgamate",
+    word: 'amalgamate',
     definitions: {
-      "v": ['to combine to or mix together'],
+      'v': ['to combine to or mix together'],
     },
   ),
   Word(
-    word: "ambiguous",
+    word: 'ambiguous',
     definitions: {
-      "adj": ['unclear', 'open to multiple interpretations'],
+      'adj': ['unclear', 'open to multiple interpretations'],
     },
   ),
   Word(
-    word: "ambivalent",
+    word: 'ambivalent',
     definitions: {
-      "adj": [
+      'adj': [
         'having mixed or contradictory feelings about someone or something',
       ],
     },
   ),
   Word(
-    word: "ameliorate",
+    word: 'ameliorate',
     definitions: {
-      "v": ['to improve or mitigate a situation'],
+      'v': ['to improve or mitigate a situation'],
     },
   ),
   Word(
-    word: "amenable",
+    word: 'amenable',
     definitions: {
-      "adj": ['easily convinced or persuaded'],
+      'adj': ['easily convinced or persuaded'],
     },
   ),
   Word(
-    word: "anachronism",
+    word: 'anachronism',
     definitions: {
-      "n": [
+      'n': [
         'something old-fashioned',
         'something appearing in a time period where it does not belong',
       ],
     },
   ),
   Word(
-    word: "analogous",
+    word: 'analogous',
     definitions: {
-      "n": ['comparable', 'appropriate for analogy'],
+      'n': ['comparable', 'appropriate for analogy'],
     },
   ),
   Word(
-    word: "anoint",
+    word: 'anoint',
     definitions: {
-      "v": [
+      'v': [
         'to choose for a particular office or position',
         'to use oil on a person in a religious ceremony',
       ],
     },
   ),
   Word(
-    word: "anomaly",
+    word: 'anomaly',
     definitions: {
-      "n": ['an exception or unusual case'],
+      'n': ['an exception or unusual case'],
     },
   ),
   Word(
-    word: "antipathy",
+    word: 'antipathy',
     definitions: {
-      "n": ['strong dislike or hatred'],
+      'n': ['strong dislike or hatred'],
     },
   ),
   Word(
-    word: "antithetical",
+    word: 'antithetical',
     definitions: {
-      "adj": ['contrary to the very nature of'],
+      'adj': ['contrary to the very nature of'],
     },
   ),
   Word(
-    word: "apathy",
+    word: 'apathy',
     definitions: {
-      "n": ['state of total lack of interest or enthusiasm'],
+      'n': ['state of total lack of interest or enthusiasm'],
     },
   ),
   Word(
-    word: "appease",
+    word: 'appease',
     definitions: {
-      "v": ['to placate', 'to satisfy (an appetite, a need)'],
+      'v': ['to placate', 'to satisfy (an appetite, a need)'],
     },
   ),
   Word(
-    word: "arbitrary",
+    word: 'arbitrary',
     definitions: {
-      "adj": ['seemingly chosen or designated without reason or purpose'],
+      'adj': ['seemingly chosen or designated without reason or purpose'],
     },
   ),
   Word(
-    word: "arcane",
+    word: 'arcane',
     definitions: {
-      "adj": ['secret or known only to a select group'],
+      'adj': ['secret or known only to a select group'],
     },
   ),
   Word(
-    word: "archaic",
+    word: 'archaic',
     definitions: {
-      "adj": ['old-fashioned', 'no longer in the common usage'],
+      'adj': ['old-fashioned', 'no longer in the common usage'],
     },
   ),
   Word(
-    word: "arduous",
+    word: 'arduous',
     definitions: {
-      "adj": ['difficult, taxing, requiring considerable effort'],
+      'adj': ['difficult, taxing, requiring considerable effort'],
     },
   ),
   Word(
-    word: "articulate",
+    word: 'articulate',
     definitions: {
-      "adj": ['exhibiting considerable communication skills, well-spoken'],
+      'adj': ['exhibiting considerable communication skills, well-spoken'],
     },
   ),
   Word(
-    word: "artless",
+    word: 'artless',
     definitions: {
-      "adj": ['without artifice', 'natural, untrained'],
+      'adj': ['without artifice', 'natural, untrained'],
     },
   ),
   Word(
-    word: "ascetic",
+    word: 'ascetic',
     definitions: {
-      "adj": ['austere or self-denying'],
+      'adj': ['austere or self-denying'],
     },
   ),
   Word(
-    word: "assuage",
+    word: 'assuage',
     definitions: {
-      "v": [
+      'v': [
         'to provide relief from an unpleasant feeling',
         'to satisfy a need or appetite',
       ],
     },
   ),
   Word(
-    word: "astonishment",
+    word: 'astonishment',
     definitions: {
-      "n": ['total surprise, shock'],
+      'n': ['total surprise, shock'],
     },
   ),
   Word(
-    word: "audacious",
+    word: 'audacious',
     definitions: {
-      "adj": ['very bold or presumptuous'],
+      'adj': ['very bold or presumptuous'],
     },
   ),
   Word(
-    word: "austere",
+    word: 'austere',
     definitions: {
-      "adj": ['severe, unadorned'],
+      'adj': ['severe, unadorned'],
     },
   ),
   Word(
-    word: "avarice",
+    word: 'avarice',
     definitions: {
-      "n": ['greed'],
+      'n': ['greed'],
     },
   ),
   Word(
-    word: "aver",
+    word: 'aver',
     definitions: {
-      "v": ['to assert or allege'],
+      'v': ['to assert or allege'],
     },
   ),
   Word(
-    word: "banal",
+    word: 'banal',
     definitions: {
-      "adj": ['boring, cliche'],
+      'adj': ['boring, cliche'],
     },
   ),
   Word(
-    word: "belie",
+    word: 'belie',
     definitions: {
-      "v": ['give a false impression in word, appearance, or deed'],
+      'v': ['give a false impression in word, appearance, or deed'],
     },
   ),
   Word(
-    word: "benign",
+    word: 'benign',
     definitions: {
-      "adj": ['gentle, harmless'],
+      'adj': ['gentle, harmless'],
     },
   ),
   Word(
-    word: "biased",
+    word: 'biased',
     definitions: {
-      "adj": ['prejudiced, displaying partiality'],
+      'adj': ['prejudiced, displaying partiality'],
     },
   ),
   Word(
-    word: "bolster",
+    word: 'bolster',
     definitions: {
-      "v": ['to shore up or support'],
+      'v': ['to shore up or support'],
     },
   ),
   Word(
-    word: "bombastic",
+    word: 'bombastic',
     definitions: {
-      "adj": ['overblown, theatrical'],
+      'adj': ['overblown, theatrical'],
     },
   ),
   Word(
-    word: "brazen",
+    word: 'brazen',
     definitions: {
-      "adj": ['bold or open to the point of shocking', 'shameless'],
+      'adj': ['bold or open to the point of shocking', 'shameless'],
     },
   ),
   Word(
-    word: "bucolic",
+    word: 'bucolic',
     definitions: {
-      "adj": ['pastoral, rustic'],
+      'adj': ['pastoral, rustic'],
     },
   ),
   Word(
-    word: "burgeon",
+    word: 'burgeon',
     definitions: {
-      "v": ['flourish, bloom, expand or increase quickly'],
+      'v': ['flourish, bloom, expand or increase quickly'],
     },
   ),
   Word(
-    word: "cacophony",
+    word: 'cacophony',
     definitions: {
-      "n": ['loud and chaotic noise'],
+      'n': ['loud and chaotic noise'],
     },
   ),
   Word(
-    word: "calumny",
+    word: 'calumny',
     definitions: {
-      "n": ['lie or slander'],
+      'n': ['lie or slander'],
     },
   ),
   Word(
-    word: "candid",
+    word: 'candid',
     definitions: {
-      "adj": ['honest, open'],
+      'adj': ['honest, open'],
     },
   ),
   Word(
-    word: "canon",
+    word: 'canon',
     definitions: {
-      "n": [
+      'n': [
         'accepted rules and tenets of a discipline',
         'sacred works/scripture',
         'notable literary and artistic works',
@@ -348,9 +348,9 @@ final wordDefinitions = <Word>[
     },
   ),
   Word(
-    word: "capacity",
+    word: 'capacity',
     definitions: {
-      "n": [
+      'n': [
         'the ability to perform a particular action',
         'the total amount a container can hold',
         'a particular position or role',
@@ -358,213 +358,213 @@ final wordDefinitions = <Word>[
     },
   ),
   Word(
-    word: "capricious",
+    word: 'capricious',
     definitions: {
-      "adj": ['mercurial, unpredictable, whimsical'],
+      'adj': ['mercurial, unpredictable, whimsical'],
     },
   ),
   Word(
-    word: "castigate",
+    word: 'castigate',
     definitions: {
-      "v": ['to scold or berate strongly'],
+      'v': ['to scold or berate strongly'],
     },
   ),
   Word(
-    word: "catalyst",
+    word: 'catalyst',
     definitions: {
-      "n": ['something that speeds up a process or causes action'],
+      'n': ['something that speeds up a process or causes action'],
     },
   ),
   Word(
-    word: "caustic",
+    word: 'caustic',
     definitions: {
-      "adj": ['corrosive', 'bitterly sarcastic'],
+      'adj': ['corrosive', 'bitterly sarcastic'],
     },
   ),
   Word(
-    word: "censure",
+    word: 'censure',
     definitions: {
-      "v": ['to express intense condemnation'],
+      'v': ['to express intense condemnation'],
     },
   ),
   Word(
-    word: "chauvinist",
+    word: 'chauvinist',
     definitions: {
-      "n": ['someone displaying prejudiced support for their own group'],
+      'n': ['someone displaying prejudiced support for their own group'],
     },
   ),
   Word(
-    word: "chicanery",
+    word: 'chicanery',
     definitions: {
-      "n": ['trickery or deception'],
+      'n': ['trickery or deception'],
     },
   ),
   Word(
-    word: "chronological",
+    word: 'chronological',
     definitions: {
-      "adj": ['ordered by time'],
+      'adj': ['ordered by time'],
     },
   ),
   Word(
-    word: "coalesce",
+    word: 'coalesce',
     definitions: {
-      "v": ['to come together, especially from disparate parts'],
+      'v': ['to come together, especially from disparate parts'],
     },
   ),
   Word(
-    word: "cogent",
+    word: 'cogent',
     definitions: {
-      "adj": ['clearly laid out and persuasive'],
+      'adj': ['clearly laid out and persuasive'],
     },
   ),
   Word(
-    word: "commensurate",
+    word: 'commensurate',
     definitions: {
-      "adj": ['in accordance with, proportional'],
+      'adj': ['in accordance with, proportional'],
     },
   ),
   Word(
-    word: "compelling",
+    word: 'compelling',
     definitions: {
-      "adj": ['captivating', 'very persuasive'],
+      'adj': ['captivating', 'very persuasive'],
     },
   ),
   Word(
-    word: "comprehensive",
+    word: 'comprehensive',
     definitions: {
-      "adj": ['complete and thorough'],
+      'adj': ['complete and thorough'],
     },
   ),
   Word(
-    word: "condone",
+    word: 'condone',
     definitions: {
-      "v": ['to approve or allow'],
+      'v': ['to approve or allow'],
     },
   ),
   Word(
-    word: "confound",
+    word: 'confound',
     definitions: {
-      "v": ['to confuse or astonish'],
+      'v': ['to confuse or astonish'],
     },
   ),
   Word(
-    word: "connoisseur",
+    word: 'connoisseur',
     definitions: {
-      "n": ['an expert judge in matters of taste'],
+      'n': ['an expert judge in matters of taste'],
     },
   ),
   Word(
-    word: "consequential",
+    word: 'consequential',
     definitions: {
-      "adj": ['as a result of', 'significant or memorable'],
+      'adj': ['as a result of', 'significant or memorable'],
     },
   ),
   Word(
-    word: "construe",
+    word: 'construe',
     definitions: {
-      "v": ['to interpret'],
+      'v': ['to interpret'],
     },
   ),
   Word(
-    word: "consumption",
+    word: 'consumption',
     definitions: {
-      "n": ['utilization (especially of a resource)'],
+      'n': ['utilization (especially of a resource)'],
     },
   ),
   Word(
-    word: "contend",
+    word: 'contend',
     definitions: {
-      "v": ['assert or claim', 'grapple with'],
+      'v': ['assert or claim', 'grapple with'],
     },
   ),
   Word(
-    word: "contentious",
+    word: 'contentious',
     definitions: {
-      "adj": ['controversial', 'involving conflict'],
+      'adj': ['controversial', 'involving conflict'],
     },
   ),
   Word(
-    word: "contrite",
+    word: 'contrite',
     definitions: {
-      "adj": ['remorseful'],
+      'adj': ['remorseful'],
     },
   ),
   Word(
-    word: "convoluted",
+    word: 'convoluted',
     definitions: {
-      "adj": ['roundabout, not straightforward'],
+      'adj': ['roundabout, not straightforward'],
     },
   ),
   Word(
-    word: "copious",
+    word: 'copious',
     definitions: {
-      "adj": ['plentiful or abundant'],
+      'adj': ['plentiful or abundant'],
     },
   ),
   Word(
-    word: "cosmopolitan",
+    word: 'cosmopolitan',
     definitions: {
-      "adj": ['of or relating to a city or urban area', 'sophisticated'],
+      'adj': ['of or relating to a city or urban area', 'sophisticated'],
     },
   ),
   Word(
-    word: "covet",
+    word: 'covet',
     definitions: {
-      "v": ['to desire something that does not belong to you'],
+      'v': ['to desire something that does not belong to you'],
     },
   ),
   Word(
-    word: "craft",
+    word: 'craft',
     definitions: {
-      "n": ['cunning', 'skill'],
+      'n': ['cunning', 'skill'],
     },
   ),
   Word(
-    word: "craven",
+    word: 'craven',
     definitions: {
-      "adj": ['cowardly to the point of being shameful'],
+      'adj': ['cowardly to the point of being shameful'],
     },
   ),
   Word(
-    word: "credence",
+    word: 'credence',
     definitions: {
-      "n": ['belief or trust'],
+      'n': ['belief or trust'],
     },
   ),
   Word(
-    word: "credulous",
+    word: 'credulous',
     definitions: {
-      "adj": ['gullible, naive'],
+      'adj': ['gullible, naive'],
     },
   ),
   Word(
-    word: "decorum",
+    word: 'decorum',
     definitions: {
-      "n": ['appropriate behavior or good manners'],
+      'n': ['appropriate behavior or good manners'],
     },
   ),
   Word(
-    word: "deference",
+    word: 'deference',
     definitions: {
-      "n": ['respect or polite submission'],
+      'n': ['respect or polite submission'],
     },
   ),
   Word(
-    word: "deflect",
+    word: 'deflect',
     definitions: {
-      "v": ['divert or cause to ricochet'],
+      'v': ['divert or cause to ricochet'],
     },
   ),
   Word(
-    word: "deftness",
+    word: 'deftness',
     definitions: {
-      "adj": ['skill, acumen', 'manual dexterity'],
+      'adj': ['skill, acumen', 'manual dexterity'],
     },
   ),
   Word(
-    word: "delineate",
+    word: 'delineate',
     definitions: {
-      "v": [
+      'v': [
         'to describe very accurately',
         'to clearly demarcate a boundary',
         'to render an outline',
@@ -572,1628 +572,1628 @@ final wordDefinitions = <Word>[
     },
   ),
   Word(
-    word: "demur",
+    word: 'demur',
     definitions: {
-      "v": ['to object or raise concerns'],
+      'v': ['to object or raise concerns'],
     },
   ),
   Word(
-    word: "denigrate",
+    word: 'denigrate',
     definitions: {
-      "v": ['say negative things about, particularly in a defamatory way'],
+      'v': ['say negative things about, particularly in a defamatory way'],
     },
   ),
   Word(
-    word: "deride",
+    word: 'deride',
     definitions: {
-      "v": ['to mock or ridicule'],
+      'v': ['to mock or ridicule'],
     },
   ),
   Word(
-    word: "derivative",
+    word: 'derivative',
     definitions: {
-      "adj": ['imitates another work in a way that is uninspiring'],
+      'adj': ['imitates another work in a way that is uninspiring'],
     },
   ),
   Word(
-    word: "desiccate",
+    word: 'desiccate',
     definitions: {
-      "v": ['to dry out completely', 'to suck out the vitality and passion'],
+      'v': ['to dry out completely', 'to suck out the vitality and passion'],
     },
   ),
   Word(
-    word: "desultory",
+    word: 'desultory',
     definitions: {
-      "adj": ['halfhearted', 'inconsistent or random'],
+      'adj': ['halfhearted', 'inconsistent or random'],
     },
   ),
   Word(
-    word: "detachment",
+    word: 'detachment',
     definitions: {
-      "n": ['objectivity or aloofness'],
+      'n': ['objectivity or aloofness'],
     },
   ),
   Word(
-    word: "determinant",
+    word: 'determinant',
     definitions: {
-      "n": ['a strong factor in an outcome'],
+      'n': ['a strong factor in an outcome'],
     },
   ),
   Word(
-    word: "diatribe",
+    word: 'diatribe',
     definitions: {
-      "n": ['a rant or angry speech denouncing someone or something'],
+      'n': ['a rant or angry speech denouncing someone or something'],
     },
   ),
   Word(
-    word: "didactic",
+    word: 'didactic',
     definitions: {
-      "adj": ['intended to teach something, particularly related to morality'],
+      'adj': ['intended to teach something, particularly related to morality'],
     },
   ),
   Word(
-    word: "diffident",
+    word: 'diffident',
     definitions: {
-      "adj": ['shy, timid, or reserved due to a lack of confidence'],
+      'adj': ['shy, timid, or reserved due to a lack of confidence'],
     },
   ),
   Word(
-    word: "dilettante",
+    word: 'dilettante',
     definitions: {
-      "n": ['someone with an amateur, unserious interest in something'],
+      'n': ['someone with an amateur, unserious interest in something'],
     },
   ),
   Word(
-    word: "dirge",
+    word: 'dirge',
     definitions: {
-      "n": ['funeral or mourning lament', 'any sad, slow song'],
+      'n': ['funeral or mourning lament', 'any sad, slow song'],
     },
   ),
   Word(
-    word: "disabuse",
+    word: 'disabuse',
     definitions: {
-      "v": ["to dispel someone's illusions about something"],
+      'v': ["to dispel someone's illusions about something"],
     },
   ),
   Word(
-    word: "discern",
+    word: 'discern',
     definitions: {
-      "v": ['to perceive'],
+      'v': ['to perceive'],
     },
   ),
   Word(
-    word: "discrepancy",
+    word: 'discrepancy',
     definitions: {
-      "n": ['inconsistency'],
+      'n': ['inconsistency'],
     },
   ),
   Word(
-    word: "disinterested",
+    word: 'disinterested',
     definitions: {
-      "adj": ['objective, unbiased', 'not invested in the outcome'],
+      'adj': ['objective, unbiased', 'not invested in the outcome'],
     },
   ),
   Word(
-    word: "disparage",
+    word: 'disparage',
     definitions: {
-      "v": ['to belittle'],
+      'v': ['to belittle'],
     },
   ),
   Word(
-    word: "disparate",
+    word: 'disparate',
     definitions: {
-      "adj": ['dissimilar to such a degree that comparison is not possible'],
+      'adj': ['dissimilar to such a degree that comparison is not possible'],
     },
   ),
   Word(
-    word: "dispassionate",
+    word: 'dispassionate',
     definitions: {
-      "adj": ['impartial or cool'],
+      'adj': ['impartial or cool'],
     },
   ),
   Word(
-    word: "disregard",
+    word: 'disregard',
     definitions: {
-      "v": ['to ignore or pay no attention to'],
+      'v': ['to ignore or pay no attention to'],
     },
   ),
   Word(
-    word: "dissemble",
+    word: 'dissemble',
     definitions: {
-      "v": ["conceal or disguise one's true feelings or beliefs"],
+      'v': ["conceal or disguise one's true feelings or beliefs"],
     },
   ),
   Word(
-    word: "disseminate",
+    word: 'disseminate',
     definitions: {
-      "v": ['to spread widely (especially information)'],
+      'v': ['to spread widely (especially information)'],
     },
   ),
   Word(
-    word: "dissonance",
+    word: 'dissonance',
     definitions: {
-      "n": ["a clash between two elements that don't blend well"],
+      'n': ["a clash between two elements that don't blend well"],
     },
   ),
   Word(
-    word: "diverge",
+    word: 'diverge',
     definitions: {
-      "v": ['to split apart, especially a road or path'],
+      'v': ['to split apart, especially a road or path'],
     },
   ),
   Word(
-    word: "dogma",
+    word: 'dogma',
     definitions: {
-      "n": ['the official beliefs or tenets of particular sect or group'],
+      'n': ['the official beliefs or tenets of particular sect or group'],
     },
   ),
   Word(
-    word: "dupe",
+    word: 'dupe',
     definitions: {
-      "v": ['to deceive or fool'],
+      'v': ['to deceive or fool'],
     },
   ),
   Word(
-    word: "ebullient",
+    word: 'ebullient',
     definitions: {
-      "adj": ['cheerful, enthusiastic, excited'],
+      'adj': ['cheerful, enthusiastic, excited'],
     },
   ),
   Word(
-    word: "eccentric",
+    word: 'eccentric',
     definitions: {
-      "adj": ['quirky or unusual'],
+      'adj': ['quirky or unusual'],
     },
   ),
   Word(
-    word: "eclectic",
+    word: 'eclectic',
     definitions: {
-      "adj": ['composed of a variety of styles, themes, motifs, etc.'],
+      'adj': ['composed of a variety of styles, themes, motifs, etc.'],
     },
   ),
   Word(
-    word: "efficacy",
+    word: 'efficacy',
     definitions: {
-      "n": ['effectiveness'],
+      'n': ['effectiveness'],
     },
   ),
   Word(
-    word: "elegy",
+    word: 'elegy',
     definitions: {
-      "n": ['sad poem or song, often in remembrance of someone deceased'],
+      'n': ['sad poem or song, often in remembrance of someone deceased'],
     },
   ),
   Word(
-    word: "elicit",
+    word: 'elicit',
     definitions: {
-      "v": ['to provoke a response'],
+      'v': ['to provoke a response'],
     },
   ),
   Word(
-    word: "eloquence",
+    word: 'eloquence',
     definitions: {
-      "adj": ['persuasive and articulate speech'],
+      'adj': ['persuasive and articulate speech'],
     },
   ),
   Word(
-    word: "eminent",
+    word: 'eminent',
     definitions: {
-      "adj": ['well-known, respected, distinguished'],
+      'adj': ['well-known, respected, distinguished'],
     },
   ),
   Word(
-    word: "empirical",
+    word: 'empirical',
     definitions: {
-      "adj": ['based on evidence'],
+      'adj': ['based on evidence'],
     },
   ),
   Word(
-    word: "emulate",
+    word: 'emulate',
     definitions: {
-      "v": ['to imitate or attempt to equal in accomplishment'],
+      'v': ['to imitate or attempt to equal in accomplishment'],
     },
   ),
   Word(
-    word: "enervate",
+    word: 'enervate',
     definitions: {
-      "v": ['to exhaust or drain of energy'],
+      'v': ['to exhaust or drain of energy'],
     },
   ),
   Word(
-    word: "engender",
+    word: 'engender',
     definitions: {
-      "v": ['to cause or give rise to'],
+      'v': ['to cause or give rise to'],
     },
   ),
   Word(
-    word: "enhance",
+    word: 'enhance',
     definitions: {
-      "v": ['intensify, increase, augment'],
+      'v': ['intensify, increase, augment'],
     },
   ),
   Word(
-    word: "entitlement",
+    word: 'entitlement',
     definitions: {
-      "n": [
+      'n': [
         'belief that one deserves things one has not earned',
         'the rights one is afforded under the law',
       ],
     },
   ),
   Word(
-    word: "ephemeral",
+    word: 'ephemeral',
     definitions: {
-      "adj": ['short-lived or transient'],
+      'adj': ['short-lived or transient'],
     },
   ),
   Word(
-    word: "equable",
+    word: 'equable',
     definitions: {
-      "adj": ['even-tempered', 'not given to much change or variation'],
+      'adj': ['even-tempered', 'not given to much change or variation'],
     },
   ),
   Word(
-    word: "equivocate",
+    word: 'equivocate',
     definitions: {
-      "v": ['to use ambiguous language in order to mislead or deceive'],
+      'v': ['to use ambiguous language in order to mislead or deceive'],
     },
   ),
   Word(
-    word: "erroneous",
+    word: 'erroneous',
     definitions: {
-      "adj": ['incorrect'],
+      'adj': ['incorrect'],
     },
   ),
   Word(
-    word: "erudite",
+    word: 'erudite',
     definitions: {
-      "adj": ['learned'],
+      'adj': ['learned'],
     },
   ),
   Word(
-    word: "eschew",
+    word: 'eschew',
     definitions: {
-      "v": ['avoid or abstain from'],
+      'v': ['avoid or abstain from'],
     },
   ),
   Word(
-    word: "esoteric",
+    word: 'esoteric',
     definitions: {
-      "adj": ['obscure, arcane'],
+      'adj': ['obscure, arcane'],
     },
   ),
   Word(
-    word: "estimable",
+    word: 'estimable',
     definitions: {
-      "adj": ['deserving respect, esteem, and admiration'],
+      'adj': ['deserving respect, esteem, and admiration'],
     },
   ),
   Word(
-    word: "eulogy",
+    word: 'eulogy',
     definitions: {
-      "n": ['memorial speech for one who has died'],
+      'n': ['memorial speech for one who has died'],
     },
   ),
   Word(
-    word: "exacerbate",
+    word: 'exacerbate',
     definitions: {
-      "v": ['to make worse'],
+      'v': ['to make worse'],
     },
   ),
   Word(
-    word: "exacting",
+    word: 'exacting',
     definitions: {
-      "adj": ['challenging, demanding, grueling'],
+      'adj': ['challenging, demanding, grueling'],
     },
   ),
   Word(
-    word: "exculpate",
+    word: 'exculpate',
     definitions: {
-      "v": ['to exonerate or vindicate'],
+      'v': ['to exonerate or vindicate'],
     },
   ),
   Word(
-    word: "exigent",
+    word: 'exigent',
     definitions: {
-      "adj": ['urgent or pressing'],
+      'adj': ['urgent or pressing'],
     },
   ),
   Word(
-    word: "exonerate",
+    word: 'exonerate',
     definitions: {
-      "v": ['to clear of charges of wrongdoing'],
+      'v': ['to clear of charges of wrongdoing'],
     },
   ),
   Word(
-    word: "expatiate",
+    word: 'expatiate',
     definitions: {
-      "v": ['to elaborate on something in great detail'],
+      'v': ['to elaborate on something in great detail'],
     },
   ),
   Word(
-    word: "explicate",
+    word: 'explicate',
     definitions: {
-      "v": ['to explain in detail'],
+      'v': ['to explain in detail'],
     },
   ),
   Word(
-    word: "exposition",
+    word: 'exposition',
     definitions: {
-      "n": ['a thorough explanation', 'a public show or fair'],
+      'n': ['a thorough explanation', 'a public show or fair'],
     },
   ),
   Word(
-    word: "extraneous",
+    word: 'extraneous',
     definitions: {
-      "adj": ['irrelevant or superfluous'],
+      'adj': ['irrelevant or superfluous'],
     },
   ),
   Word(
-    word: "extrapolate",
+    word: 'extrapolate',
     definitions: {
-      "v": ['to estimate based on presently available information or facts'],
+      'v': ['to estimate based on presently available information or facts'],
     },
   ),
   Word(
-    word: "facetious",
+    word: 'facetious',
     definitions: {
-      "adj": ['glib or flippant'],
+      'adj': ['glib or flippant'],
     },
   ),
   Word(
-    word: "facilitate",
+    word: 'facilitate',
     definitions: {
-      "v": ['to make something easier or simpler'],
+      'v': ['to make something easier or simpler'],
     },
   ),
   Word(
-    word: "fallacious",
+    word: 'fallacious',
     definitions: {
-      "adj": ['relying on a fallacy and thus incorrect/misinformed'],
+      'adj': ['relying on a fallacy and thus incorrect/misinformed'],
     },
   ),
   Word(
-    word: "fastidious",
+    word: 'fastidious',
     definitions: {
-      "adj": ['meticulous', 'invested in cleanliness'],
+      'adj': ['meticulous', 'invested in cleanliness'],
     },
   ),
   Word(
-    word: "fluctuate",
+    word: 'fluctuate',
     definitions: {
-      "v": ['to shift without apparent pattern'],
+      'v': ['to shift without apparent pattern'],
     },
   ),
   Word(
-    word: "foment",
+    word: 'foment',
     definitions: {
-      "v": ['to foster unrest or discontent'],
+      'v': ['to foster unrest or discontent'],
     },
   ),
   Word(
-    word: "forestall",
+    word: 'forestall',
     definitions: {
-      "v": ['to hold off or try to prevent'],
+      'v': ['to hold off or try to prevent'],
     },
   ),
   Word(
-    word: "fortuitous",
+    word: 'fortuitous',
     definitions: {
-      "adj": ['fortunate and lucky'],
+      'adj': ['fortunate and lucky'],
     },
   ),
   Word(
-    word: "frugal",
+    word: 'frugal',
     definitions: {
-      "adj": ['economical, thrifty'],
+      'adj': ['economical, thrifty'],
     },
   ),
   Word(
-    word: "gainsay",
+    word: 'gainsay',
     definitions: {
-      "v": ['deny or oppose'],
+      'v': ['deny or oppose'],
     },
   ),
   Word(
-    word: "galvanize",
+    word: 'galvanize',
     definitions: {
-      "v": ['to prod someone into action'],
+      'v': ['to prod someone into action'],
     },
   ),
   Word(
-    word: "garrulous",
+    word: 'garrulous',
     definitions: {
-      "adj": ['talkative'],
+      'adj': ['talkative'],
     },
   ),
   Word(
-    word: "gauche",
+    word: 'gauche',
     definitions: {
-      "adj": ['socially inept, inappropriate, or awkward'],
+      'adj': ['socially inept, inappropriate, or awkward'],
     },
   ),
   Word(
-    word: "germane",
+    word: 'germane',
     definitions: {
-      "adj": ['relevant to the matter at hand'],
+      'adj': ['relevant to the matter at hand'],
     },
   ),
   Word(
-    word: "glib",
+    word: 'glib',
     definitions: {
-      "adj": ['talking volubly, but carelessly or insincerely'],
+      'adj': ['talking volubly, but carelessly or insincerely'],
     },
   ),
   Word(
-    word: "gregarious",
+    word: 'gregarious',
     definitions: {
-      "adj": ['sociable, genial'],
+      'adj': ['sociable, genial'],
     },
   ),
   Word(
-    word: "guile",
+    word: 'guile',
     definitions: {
-      "n": ['craftiness and cunning'],
+      'n': ['craftiness and cunning'],
     },
   ),
   Word(
-    word: "hackneyed",
+    word: 'hackneyed',
     definitions: {
-      "adj": ['cliche, trite, banal'],
+      'adj': ['cliche, trite, banal'],
     },
   ),
   Word(
-    word: "harangue",
+    word: 'harangue',
     definitions: {
-      "n": ['diatribe or rant'],
+      'n': ['diatribe or rant'],
     },
   ),
   Word(
-    word: "hedonism",
+    word: 'hedonism',
     definitions: {
-      "n": ['the pursuit of pleasure'],
+      'n': ['the pursuit of pleasure'],
     },
   ),
   Word(
-    word: "hierarchical",
+    word: 'hierarchical',
     definitions: {
-      "adj": ['arranged in rank order or hierarchy'],
+      'adj': ['arranged in rank order or hierarchy'],
     },
   ),
   Word(
-    word: "homogenous",
+    word: 'homogenous',
     definitions: {
-      "adj": ['uniform, identical'],
+      'adj': ['uniform, identical'],
     },
   ),
   Word(
-    word: "hyperbole",
+    word: 'hyperbole',
     definitions: {
-      "n": ['obvious exaggeration for effect'],
+      'n': ['obvious exaggeration for effect'],
     },
   ),
   Word(
-    word: "iconoclast",
+    word: 'iconoclast',
     definitions: {
-      "n": ['a person who criticizes cherished beliefs or institutions'],
+      'n': ['a person who criticizes cherished beliefs or institutions'],
     },
   ),
   Word(
-    word: "ideological",
+    word: 'ideological',
     definitions: {
-      "adj": ['relating to a particular belief system or theory'],
+      'adj': ['relating to a particular belief system or theory'],
     },
   ),
   Word(
-    word: "imminent",
+    word: 'imminent',
     definitions: {
-      "adj": ['about to happen'],
+      'adj': ['about to happen'],
     },
   ),
   Word(
-    word: "immutable",
+    word: 'immutable',
     definitions: {
-      "adj": ['unchangeable'],
+      'adj': ['unchangeable'],
     },
   ),
   Word(
-    word: "impair",
+    word: 'impair',
     definitions: {
-      "v": ['to hinder or weaken someone or something'],
+      'v': ['to hinder or weaken someone or something'],
     },
   ),
   Word(
-    word: "impediment",
+    word: 'impediment',
     definitions: {
-      "n": ['barrier, hindrance, or obstruction'],
+      'n': ['barrier, hindrance, or obstruction'],
     },
   ),
   Word(
-    word: "imperturbable",
+    word: 'imperturbable',
     definitions: {
-      "adj": ['remaining calm under any circumstance'],
+      'adj': ['remaining calm under any circumstance'],
     },
   ),
   Word(
-    word: "implacable",
+    word: 'implacable',
     definitions: {
-      "adj": ['unforgiving', 'relentless'],
+      'adj': ['unforgiving', 'relentless'],
     },
   ),
   Word(
-    word: "implicit",
+    word: 'implicit',
     definitions: {
-      "adj": ['implied or insinuated without being directly stated'],
+      'adj': ['implied or insinuated without being directly stated'],
     },
   ),
   Word(
-    word: "imprudence",
+    word: 'imprudence',
     definitions: {
-      "n": ['bad judgment'],
+      'n': ['bad judgment'],
     },
   ),
   Word(
-    word: "impudent",
+    word: 'impudent',
     definitions: {
-      "adj": ['disrespectful'],
+      'adj': ['disrespectful'],
     },
   ),
   Word(
-    word: "inadvertent",
+    word: 'inadvertent',
     definitions: {
-      "adj": ['by accident or unintentional'],
+      'adj': ['by accident or unintentional'],
     },
   ),
   Word(
-    word: "inchoate",
+    word: 'inchoate',
     definitions: {
-      "adj": ['rudimentary, in the beginning stages'],
+      'adj': ['rudimentary, in the beginning stages'],
     },
   ),
   Word(
-    word: "inconclusive",
+    word: 'inconclusive',
     definitions: {
-      "adj": ['indeterminate or unresolved'],
+      'adj': ['indeterminate or unresolved'],
     },
   ),
   Word(
-    word: "indebted",
+    word: 'indebted',
     definitions: {
-      "adj": ['owing money', 'owing gratitude to someone or something'],
+      'adj': ['owing money', 'owing gratitude to someone or something'],
     },
   ),
   Word(
-    word: "indefatigable",
+    word: 'indefatigable',
     definitions: {
-      "adj": ['cannot be made tired'],
+      'adj': ['cannot be made tired'],
     },
   ),
   Word(
-    word: "indolent",
+    word: 'indolent',
     definitions: {
-      "adj": ['lazy', 'idle'],
+      'adj': ['lazy', 'idle'],
     },
   ),
   Word(
-    word: "infer",
+    word: 'infer',
     definitions: {
-      "v": [
+      'v': [
         'to conclude from implicit evidence (as opposed to explicit facts)',
       ],
     },
   ),
   Word(
-    word: "ingenuous",
+    word: 'ingenuous',
     definitions: {
-      "adj": ['naive or innocent'],
+      'adj': ['naive or innocent'],
     },
   ),
   Word(
-    word: "inimical",
+    word: 'inimical',
     definitions: {
-      "adj": ['harmful or hostile'],
+      'adj': ['harmful or hostile'],
     },
   ),
   Word(
-    word: "innocuous",
+    word: 'innocuous',
     definitions: {
-      "adj": ['harmless'],
+      'adj': ['harmless'],
     },
   ),
   Word(
-    word: "inscrutable",
+    word: 'inscrutable',
     definitions: {
-      "adj": ['enigmatic, incomprehensible'],
+      'adj': ['enigmatic, incomprehensible'],
     },
   ),
   Word(
-    word: "insipid",
+    word: 'insipid',
     definitions: {
-      "adj": ['bland, uninspired, inane'],
+      'adj': ['bland, uninspired, inane'],
     },
   ),
   Word(
-    word: "insular",
+    word: 'insular',
     definitions: {
-      "adj": ["uninterested in matters outside one's immediate sphere"],
+      'adj': ["uninterested in matters outside one's immediate sphere"],
     },
   ),
   Word(
-    word: "intensive",
+    word: 'intensive',
     definitions: {
-      "adj": ['concentrated and in-depth'],
+      'adj': ['concentrated and in-depth'],
     },
   ),
   Word(
-    word: "intermediary",
+    word: 'intermediary',
     definitions: {
-      "n": ['a go-between'],
+      'n': ['a go-between'],
     },
   ),
   Word(
-    word: "intimate",
+    word: 'intimate',
     definitions: {
-      "adj": ['close (as in a relationship)', 'particularly private'],
-      "v": ['to imply'],
+      'adj': ['close (as in a relationship)', 'particularly private'],
+      'v': ['to imply'],
     },
   ),
   Word(
-    word: "intractable",
+    word: 'intractable',
     definitions: {
-      "adj": ['unmanageable', 'stubborn or obstinate'],
+      'adj': ['unmanageable', 'stubborn or obstinate'],
     },
   ),
   Word(
-    word: "intransigent",
+    word: 'intransigent',
     definitions: {
-      "adj": ['uncompromising, obstinate'],
+      'adj': ['uncompromising, obstinate'],
     },
   ),
   Word(
-    word: "intrepid",
+    word: 'intrepid',
     definitions: {
-      "adj": ['bold and adventurous'],
+      'adj': ['bold and adventurous'],
     },
   ),
   Word(
-    word: "inveterate",
+    word: 'inveterate',
     definitions: {
-      "adj": ['ingrained, habitual'],
+      'adj': ['ingrained, habitual'],
     },
   ),
   Word(
-    word: "invulnerable",
+    word: 'invulnerable',
     definitions: {
-      "adj": ['indestructible, impervious to harm'],
+      'adj': ['indestructible, impervious to harm'],
     },
   ),
   Word(
-    word: "irascible",
+    word: 'irascible',
     definitions: {
-      "adj": ['irritable, testy, touchy'],
+      'adj': ['irritable, testy, touchy'],
     },
   ),
   Word(
-    word: "irresolute",
+    word: 'irresolute',
     definitions: {
-      "adj": ['wishy-washy, hesitant'],
+      'adj': ['wishy-washy, hesitant'],
     },
   ),
   Word(
-    word: "laconic",
+    word: 'laconic',
     definitions: {
-      "adj": ['taciturn, reserved, succinct'],
+      'adj': ['taciturn, reserved, succinct'],
     },
   ),
   Word(
-    word: "laud",
+    word: 'laud',
     definitions: {
-      "v": ['to praise'],
+      'v': ['to praise'],
     },
   ),
   Word(
-    word: "laudable",
+    word: 'laudable',
     definitions: {
-      "adj": ['praiseworthy'],
+      'adj': ['praiseworthy'],
     },
   ),
   Word(
-    word: "litigation",
+    word: 'litigation',
     definitions: {
-      "n": ['legal proceedings'],
+      'n': ['legal proceedings'],
     },
   ),
   Word(
-    word: "loquacious",
+    word: 'loquacious',
     definitions: {
-      "adj": ['talkative'],
+      'adj': ['talkative'],
     },
   ),
   Word(
-    word: "lucid",
+    word: 'lucid',
     definitions: {
-      "adj": ['clear and coherent'],
+      'adj': ['clear and coherent'],
     },
   ),
   Word(
-    word: "luminous",
+    word: 'luminous',
     definitions: {
-      "adj": ['full of light'],
+      'adj': ['full of light'],
     },
   ),
   Word(
-    word: "magnanimity",
+    word: 'magnanimity',
     definitions: {
-      "n": ['generosity and nobility of spirit'],
+      'n': ['generosity and nobility of spirit'],
     },
   ),
   Word(
-    word: "maladroit",
+    word: 'maladroit',
     definitions: {
-      "adj": ['clumsy, awkward, inept'],
+      'adj': ['clumsy, awkward, inept'],
     },
   ),
   Word(
-    word: "malign",
+    word: 'malign',
     definitions: {
-      "adj": ['evil or harmful'],
-      "v": ['to speak negatively about someone or something'],
+      'adj': ['evil or harmful'],
+      'v': ['to speak negatively about someone or something'],
     },
   ),
   Word(
-    word: "malleable",
+    word: 'malleable',
     definitions: {
-      "adj": ['pliant or pliable', 'easily influenced'],
+      'adj': ['pliant or pliable', 'easily influenced'],
     },
   ),
   Word(
-    word: "maverick",
+    word: 'maverick',
     definitions: {
-      "n": ['an unorthodox person or rebel'],
+      'n': ['an unorthodox person or rebel'],
     },
   ),
   Word(
-    word: "mendacity",
+    word: 'mendacity',
     definitions: {
-      "n": ['untruthfulness, dishonesty'],
+      'n': ['untruthfulness, dishonesty'],
     },
   ),
   Word(
-    word: "mercurial",
+    word: 'mercurial',
     definitions: {
-      "adj": ['easily changeable, fickle'],
+      'adj': ['easily changeable, fickle'],
     },
   ),
   Word(
-    word: "meticulous",
+    word: 'meticulous',
     definitions: {
-      "adj": ['paying close attention to detail'],
+      'adj': ['paying close attention to detail'],
     },
   ),
   Word(
-    word: "misanthrope",
+    word: 'misanthrope',
     definitions: {
-      "n": ['person who hates humanity'],
+      'n': ['person who hates humanity'],
     },
   ),
   Word(
-    word: "mitigate",
+    word: 'mitigate',
     definitions: {
-      "v": ['to improve a painful, unpleasant, or negative situation'],
+      'v': ['to improve a painful, unpleasant, or negative situation'],
     },
   ),
   Word(
-    word: "modest",
+    word: 'modest',
     definitions: {
-      "adj": ['not boastful', 'not overly showy'],
+      'adj': ['not boastful', 'not overly showy'],
     },
   ),
   Word(
-    word: "mollify",
+    word: 'mollify',
     definitions: {
-      "v": ['placate'],
+      'v': ['placate'],
     },
   ),
   Word(
-    word: "monotony",
+    word: 'monotony',
     definitions: {
-      "n": ['boredom and repetition'],
+      'n': ['boredom and repetition'],
     },
   ),
   Word(
-    word: "mundane",
+    word: 'mundane',
     definitions: {
-      "adj": ['everyday, boring'],
+      'adj': ['everyday, boring'],
     },
   ),
   Word(
-    word: "munificent",
+    word: 'munificent',
     definitions: {
-      "adj": ['very generous'],
+      'adj': ['very generous'],
     },
   ),
   Word(
-    word: "nascent",
+    word: 'nascent',
     definitions: {
-      "adj": ['just beginning or in the early stages'],
+      'adj': ['just beginning or in the early stages'],
     },
   ),
   Word(
-    word: "naive",
+    word: 'naive',
     definitions: {
-      "adj": ['inexperienced or gullible'],
+      'adj': ['inexperienced or gullible'],
     },
   ),
   Word(
-    word: "neglect",
+    word: 'neglect',
     definitions: {
-      "v": ['to abandon or leave uncared-for'],
+      'v': ['to abandon or leave uncared-for'],
     },
   ),
   Word(
-    word: "nonplussed",
+    word: 'nonplussed',
     definitions: {
-      "adj": ['confused and baffled'],
+      'adj': ['confused and baffled'],
     },
   ),
   Word(
-    word: "notoriety",
+    word: 'notoriety',
     definitions: {
-      "n": ['fame for doing something negative or criminal'],
+      'n': ['fame for doing something negative or criminal'],
     },
   ),
   Word(
-    word: "nuance",
+    word: 'nuance',
     definitions: {
-      "n": ['subtle shades of difference'],
+      'n': ['subtle shades of difference'],
     },
   ),
   Word(
-    word: "obdurate",
+    word: 'obdurate',
     definitions: {
-      "adj": ['stubborn, obstinate'],
+      'adj': ['stubborn, obstinate'],
     },
   ),
   Word(
-    word: "obscure",
+    word: 'obscure',
     definitions: {
-      "adj": ['mysterious or not well-known'],
-      "v": ['to cover something up or make it more difficult to perceive'],
+      'adj': ['mysterious or not well-known'],
+      'v': ['to cover something up or make it more difficult to perceive'],
     },
   ),
   Word(
-    word: "obsequious",
+    word: 'obsequious',
     definitions: {
-      "adj": ['overly fawning and helpful in a way that is disingenuous'],
+      'adj': ['overly fawning and helpful in a way that is disingenuous'],
     },
   ),
   Word(
-    word: "obstinate",
+    word: 'obstinate',
     definitions: {
-      "adj": ['stubborn, uncompromising'],
+      'adj': ['stubborn, uncompromising'],
     },
   ),
   Word(
-    word: "obviate",
+    word: 'obviate',
     definitions: {
-      "v": ['to forestall the need for something', 'to prevent'],
+      'v': ['to forestall the need for something', 'to prevent'],
     },
   ),
   Word(
-    word: "occlude",
+    word: 'occlude',
     definitions: {
-      "v": ['to block or obstruct'],
+      'v': ['to block or obstruct'],
     },
   ),
   Word(
-    word: "occult",
+    word: 'occult',
     definitions: {
-      "n": ['the mystical and supernatural'],
+      'n': ['the mystical and supernatural'],
     },
   ),
   Word(
-    word: "offset",
+    word: 'offset',
     definitions: {
-      "v": ['to counterbalance or counteract'],
+      'v': ['to counterbalance or counteract'],
     },
   ),
   Word(
-    word: "olfactory",
+    word: 'olfactory',
     definitions: {
-      "adj": ['relating to smell or the sense of smell'],
+      'adj': ['relating to smell or the sense of smell'],
     },
   ),
   Word(
-    word: "omniscience",
+    word: 'omniscience',
     definitions: {
-      "n": ['the quality or state of being all-knowing'],
+      'n': ['the quality or state of being all-knowing'],
     },
   ),
   Word(
-    word: "onerous",
+    word: 'onerous',
     definitions: {
-      "adj": ['difficult or burdensome'],
+      'adj': ['difficult or burdensome'],
     },
   ),
   Word(
-    word: "opaque",
+    word: 'opaque',
     definitions: {
-      "adj": ['not see-through; blocking light'],
+      'adj': ['not see-through; blocking light'],
     },
   ),
   Word(
-    word: "opprobrium",
+    word: 'opprobrium',
     definitions: {
-      "n": ['criticism or condemnation'],
+      'n': ['criticism or condemnation'],
     },
   ),
   Word(
-    word: "oscillate",
+    word: 'oscillate',
     definitions: {
-      "v": ['to swing back and forth between two points, poles, or positions'],
+      'v': ['to swing back and forth between two points, poles, or positions'],
     },
   ),
   Word(
-    word: "ostentatious",
+    word: 'ostentatious',
     definitions: {
-      "adj": ['overly showy in a way that is gaudy or vulgar'],
+      'adj': ['overly showy in a way that is gaudy or vulgar'],
     },
   ),
   Word(
-    word: "outstrip",
+    word: 'outstrip',
     definitions: {
-      "v": ['to overtake or outrun'],
+      'v': ['to overtake or outrun'],
     },
   ),
   Word(
-    word: "overshadow",
+    word: 'overshadow',
     definitions: {
-      "v": ['to literally cast a shadow over', 'to appear more notable than'],
+      'v': ['to literally cast a shadow over', 'to appear more notable than'],
     },
   ),
   Word(
-    word: "painstaking",
+    word: 'painstaking',
     definitions: {
-      "adj": ['attentive to detail, meticulous'],
+      'adj': ['attentive to detail, meticulous'],
     },
   ),
   Word(
-    word: "partial",
+    word: 'partial',
     definitions: {
-      "adj": ['incomplete'],
+      'adj': ['incomplete'],
     },
   ),
   Word(
-    word: "partisan",
+    word: 'partisan',
     definitions: {
-      "n": ['a devoted supporter of a group, cause, or person'],
+      'n': ['a devoted supporter of a group, cause, or person'],
     },
   ),
   Word(
-    word: "patent",
+    word: 'patent',
     definitions: {
-      "adj": ['blatant, obvious'],
+      'adj': ['blatant, obvious'],
     },
   ),
   Word(
-    word: "paucity",
+    word: 'paucity',
     definitions: {
-      "n": ['scarcity, poverty'],
+      'n': ['scarcity, poverty'],
     },
   ),
   Word(
-    word: "pedantic",
+    word: 'pedantic',
     definitions: {
-      "adj": ['overly concerned with irrelevant detail, fussy'],
+      'adj': ['overly concerned with irrelevant detail, fussy'],
     },
   ),
   Word(
-    word: "pedestrian",
+    word: 'pedestrian',
     definitions: {
-      "adj": ['boring, monotonous, run-of-the-mill'],
+      'adj': ['boring, monotonous, run-of-the-mill'],
     },
   ),
   Word(
-    word: "perfidy",
+    word: 'perfidy',
     definitions: {
-      "n": ['treachery or deceit'],
+      'n': ['treachery or deceit'],
     },
   ),
   Word(
-    word: "perfunctory",
+    word: 'perfunctory',
     definitions: {
-      "adj": ['done without much effort, care, or thought'],
+      'adj': ['done without much effort, care, or thought'],
     },
   ),
   Word(
-    word: "peripheral",
+    word: 'peripheral',
     definitions: {
-      "adj": ['on the edge or periphery; not centrally important'],
+      'adj': ['on the edge or periphery; not centrally important'],
     },
   ),
   Word(
-    word: "permeate",
+    word: 'permeate',
     definitions: {
-      "v": ['to pervade or penetrate throughout'],
+      'v': ['to pervade or penetrate throughout'],
     },
   ),
   Word(
-    word: "perseverance",
+    word: 'perseverance',
     definitions: {
-      "n": ['persistence in the face of obstacles'],
+      'n': ['persistence in the face of obstacles'],
     },
   ),
   Word(
-    word: "peruse",
+    word: 'peruse',
     definitions: {
-      "v": [
+      'v': [
         'to read something carefully and closely',
         'to read something informally or quickly',
       ],
     },
   ),
   Word(
-    word: "pervasive",
+    word: 'pervasive',
     definitions: {
-      "adj": ['found everywhere, widespread; often has a negative connotation'],
+      'adj': ['found everywhere, widespread; often has a negative connotation'],
     },
   ),
   Word(
-    word: "phenomena",
+    word: 'phenomena',
     definitions: {
-      "n": ['things that happen'],
+      'n': ['things that happen'],
     },
   ),
   Word(
-    word: "phlegmatic",
+    word: 'phlegmatic',
     definitions: {
-      "adj": ['cool and unruffled'],
+      'adj': ['cool and unruffled'],
     },
   ),
   Word(
-    word: "pith",
+    word: 'pith',
     definitions: {
-      "n": ['the essential substance of something'],
+      'n': ['the essential substance of something'],
     },
   ),
   Word(
-    word: "placate",
+    word: 'placate',
     definitions: {
-      "v": ['to calm, especially an angry or upset person'],
+      'v': ['to calm, especially an angry or upset person'],
     },
   ),
   Word(
-    word: "plastic",
+    word: 'plastic',
     definitions: {
-      "adj": ['easily shaped or molded', 'made of plastic'],
+      'adj': ['easily shaped or molded', 'made of plastic'],
     },
   ),
   Word(
-    word: "platitude",
+    word: 'platitude',
     definitions: {
-      "n": ['a trite or cliche statement'],
+      'n': ['a trite or cliche statement'],
     },
   ),
   Word(
-    word: "plausible",
+    word: 'plausible',
     definitions: {
-      "adj": ['believable, reasonable'],
+      'adj': ['believable, reasonable'],
     },
   ),
   Word(
-    word: "plethora",
+    word: 'plethora',
     definitions: {
-      "n": ['a surplus or overabundance of something'],
+      'n': ['a surplus or overabundance of something'],
     },
   ),
   Word(
-    word: "plummet",
+    word: 'plummet',
     definitions: {
-      "v": ['to fall quickly and far'],
+      'v': ['to fall quickly and far'],
     },
   ),
   Word(
-    word: "polarize",
+    word: 'polarize',
     definitions: {
-      "v": ['to cause a sharp division between two groups'],
+      'v': ['to cause a sharp division between two groups'],
     },
   ),
   Word(
-    word: "polemical",
+    word: 'polemical',
     definitions: {
-      "adj": ['angry, hostile, harshly critical'],
+      'adj': ['angry, hostile, harshly critical'],
     },
   ),
   Word(
-    word: "pragmatic",
+    word: 'pragmatic',
     definitions: {
-      "adj": ['practical'],
+      'adj': ['practical'],
     },
   ),
   Word(
-    word: "precarious",
+    word: 'precarious',
     definitions: {
-      "adj": ['uncertain or unstable'],
+      'adj': ['uncertain or unstable'],
     },
   ),
   Word(
-    word: "preceded",
+    word: 'preceded',
     definitions: {
-      "adj": ['went before'],
+      'adj': ['went before'],
     },
   ),
   Word(
-    word: "precipitate",
+    word: 'precipitate',
     definitions: {
-      "v": ['to cause'],
-      "adj": ['hastily and not well-considered'],
-      "n": ['particulate matter formed within a solution'],
+      'v': ['to cause'],
+      'adj': ['hastily and not well-considered'],
+      'n': ['particulate matter formed within a solution'],
     },
   ),
   Word(
-    word: "precursor",
+    word: 'precursor',
     definitions: {
-      "n": ['a forerunner'],
+      'n': ['a forerunner'],
     },
   ),
   Word(
-    word: "prescient",
+    word: 'prescient',
     definitions: {
-      "adj": ['knowing things before they happen, prophetic'],
+      'adj': ['knowing things before they happen, prophetic'],
     },
   ),
   Word(
-    word: "presumptuous",
+    word: 'presumptuous',
     definitions: {
-      "adj": ['overly familiar; invades social boundaries'],
+      'adj': ['overly familiar; invades social boundaries'],
     },
   ),
   Word(
-    word: "prevail",
+    word: 'prevail',
     definitions: {
-      "v": [
+      'v': [
         'to succeed, especially with respect to vanquishing an opponent',
         'to convince or persuade',
       ],
     },
   ),
   Word(
-    word: "prevaricate",
+    word: 'prevaricate',
     definitions: {
-      "v": ['to evade or deceive without outright lying'],
+      'v': ['to evade or deceive without outright lying'],
     },
   ),
   Word(
-    word: "pristine",
+    word: 'pristine',
     definitions: {
-      "adj": ['untouched, clean, pure'],
+      'adj': ['untouched, clean, pure'],
     },
   ),
   Word(
-    word: "probity",
+    word: 'probity',
     definitions: {
-      "n": ['integrity and honor'],
+      'n': ['integrity and honor'],
     },
   ),
   Word(
-    word: "prodigal",
+    word: 'prodigal',
     definitions: {
-      "n": ['a reckless spender'],
+      'n': ['a reckless spender'],
     },
   ),
   Word(
-    word: "prodigious",
+    word: 'prodigious',
     definitions: {
-      "adj": ['enormous, immense, gigantic'],
+      'adj': ['enormous, immense, gigantic'],
     },
   ),
   Word(
-    word: "profligate",
+    word: 'profligate',
     definitions: {
-      "adj": ['extravagant and wasteful, especially in an immoral way'],
+      'adj': ['extravagant and wasteful, especially in an immoral way'],
     },
   ),
   Word(
-    word: "proliferate",
+    word: 'proliferate',
     definitions: {
-      "v": ['to multiply and spread rapidly'],
+      'v': ['to multiply and spread rapidly'],
     },
   ),
   Word(
-    word: "propitiate",
+    word: 'propitiate',
     definitions: {
-      "v": [
+      'v': [
         'to obtain favor from someone, by performing a pleasing action',
         'to appease someone who is angry',
       ],
     },
   ),
   Word(
-    word: "propriety",
+    word: 'propriety',
     definitions: {
-      "n": ['appropriateness, manners, decorum'],
+      'n': ['appropriateness, manners, decorum'],
     },
   ),
   Word(
-    word: "prospective",
+    word: 'prospective',
     definitions: {
-      "adj": ['potential or likely', 'applicable to the future'],
+      'adj': ['potential or likely', 'applicable to the future'],
     },
   ),
   Word(
-    word: "qualification",
+    word: 'qualification',
     definitions: {
-      "n": ['credential', 'a modifying statement'],
+      'n': ['credential', 'a modifying statement'],
     },
   ),
   Word(
-    word: "quotidian",
+    word: 'quotidian',
     definitions: {
-      "adj": ['relating to the everyday or mundane'],
+      'adj': ['relating to the everyday or mundane'],
     },
   ),
   Word(
-    word: "rationalize",
+    word: 'rationalize',
     definitions: {
-      "v": ['attempt to justify with superficially valid reasons'],
+      'v': ['attempt to justify with superficially valid reasons'],
     },
   ),
   Word(
-    word: "reconcile",
+    word: 'reconcile',
     definitions: {
-      "v": ['to bring into harmony', 'to repair a relationship'],
+      'v': ['to bring into harmony', 'to repair a relationship'],
     },
   ),
   Word(
-    word: "recondite",
+    word: 'recondite',
     definitions: {
-      "adj": ['arcane or obscure'],
+      'adj': ['arcane or obscure'],
     },
   ),
   Word(
-    word: "refute",
+    word: 'refute',
     definitions: {
-      "v": ['to rebut or disprove'],
+      'v': ['to rebut or disprove'],
     },
   ),
   Word(
-    word: "relentless",
+    word: 'relentless',
     definitions: {
-      "adj": ['never stopping, constant'],
+      'adj': ['never stopping, constant'],
     },
   ),
   Word(
-    word: "relevant",
+    word: 'relevant',
     definitions: {
-      "adj": ['relating to the topic or issue at hand'],
+      'adj': ['relating to the topic or issue at hand'],
     },
   ),
   Word(
-    word: "reproach",
+    word: 'reproach',
     definitions: {
-      "v": ['to scold or express criticism'],
+      'v': ['to scold or express criticism'],
     },
   ),
   Word(
-    word: "repudiate",
+    word: 'repudiate',
     definitions: {
-      "v": ['to renounce or disown'],
+      'v': ['to renounce or disown'],
     },
   ),
   Word(
-    word: "rescind",
+    word: 'rescind',
     definitions: {
-      "v": ['to take back or retract (an offer or statement)'],
+      'v': ['to take back or retract (an offer or statement)'],
     },
   ),
   Word(
-    word: "respectively",
+    word: 'respectively',
     definitions: {
-      "adv": ['in the sequential order previously given'],
+      'adv': ['in the sequential order previously given'],
     },
   ),
   Word(
-    word: "reticent",
+    word: 'reticent',
     definitions: {
-      "adj": ['hesitant to speak', 'introverted or silent'],
+      'adj': ['hesitant to speak', 'introverted or silent'],
     },
   ),
   Word(
-    word: "reverent",
+    word: 'reverent',
     definitions: {
-      "adj": ['solemn and respectful'],
+      'adj': ['solemn and respectful'],
     },
   ),
   Word(
-    word: "rhetoric",
+    word: 'rhetoric',
     definitions: {
-      "n": ['the art of effective communication (written or verbal)'],
+      'n': ['the art of effective communication (written or verbal)'],
     },
   ),
   Word(
-    word: "salubrious",
+    word: 'salubrious',
     definitions: {
-      "adj": ['health-promoting'],
+      'adj': ['health-promoting'],
     },
   ),
   Word(
-    word: "sanction",
+    word: 'sanction',
     definitions: {
-      "v": [
+      'v': [
         'to give official permission',
         'to impose a penalty for a particular action',
       ],
-      "n": ['punishments imposed for breaking a regulation'],
+      'n': ['punishments imposed for breaking a regulation'],
     },
   ),
   Word(
-    word: "satiate",
+    word: 'satiate',
     definitions: {
-      "v": ['to completely satisfy (with respect to hunger or appetite)'],
+      'v': ['to completely satisfy (with respect to hunger or appetite)'],
     },
   ),
   Word(
-    word: "secular",
+    word: 'secular',
     definitions: {
-      "adj": ['of or relating to worldly (as opposed to religious) matters'],
+      'adj': ['of or relating to worldly (as opposed to religious) matters'],
     },
   ),
   Word(
-    word: "sediment",
+    word: 'sediment',
     definitions: {
-      "n": ['material that settles at the bottom of a body of water'],
+      'n': ['material that settles at the bottom of a body of water'],
     },
   ),
   Word(
-    word: "sedulous",
+    word: 'sedulous',
     definitions: {
-      "adj": ['dedicated and careful'],
+      'adj': ['dedicated and careful'],
     },
   ),
   Word(
-    word: "simultaneous",
+    word: 'simultaneous',
     definitions: {
-      "adj": ['occurring at the same moment'],
+      'adj': ['occurring at the same moment'],
     },
   ),
   Word(
-    word: "solicitous",
+    word: 'solicitous',
     definitions: {
-      "adj": ['considerate, attentive'],
+      'adj': ['considerate, attentive'],
     },
   ),
   Word(
-    word: "soporific",
+    word: 'soporific',
     definitions: {
-      "adj": ['makes sleepy'],
+      'adj': ['makes sleepy'],
     },
   ),
   Word(
-    word: "sparse",
+    word: 'sparse',
     definitions: {
-      "adj": ['scattered or scarce', 'austere and unadorned'],
+      'adj': ['scattered or scarce', 'austere and unadorned'],
     },
   ),
   Word(
-    word: "specious",
+    word: 'specious',
     definitions: {
-      "adj": ['spurious; appearing true but actually false'],
+      'adj': ['spurious; appearing true but actually false'],
     },
   ),
   Word(
-    word: "sporadic",
+    word: 'sporadic',
     definitions: {
-      "adj": ['occasional or scattered'],
+      'adj': ['occasional or scattered'],
     },
   ),
   Word(
-    word: "spurious",
+    word: 'spurious',
     definitions: {
-      "adj": ['fake or false'],
+      'adj': ['fake or false'],
     },
   ),
   Word(
-    word: "stolid",
+    word: 'stolid',
     definitions: {
-      "adj": ['calm and dependable'],
+      'adj': ['calm and dependable'],
     },
   ),
   Word(
-    word: "subjective",
+    word: 'subjective',
     definitions: {
-      "adj": ['open to personal interpretation; not based in objective fact'],
+      'adj': ['open to personal interpretation; not based in objective fact'],
     },
   ),
   Word(
-    word: "substantiate",
+    word: 'substantiate',
     definitions: {
-      "v": ['to corroborate or give evidence of something'],
+      'v': ['to corroborate or give evidence of something'],
     },
   ),
   Word(
-    word: "subversive",
+    word: 'subversive',
     definitions: {
-      "adj": ['meant to undercut established institutions or norms'],
+      'adj': ['meant to undercut established institutions or norms'],
     },
   ),
   Word(
-    word: "sufficient",
+    word: 'sufficient',
     definitions: {
-      "adj": ['enough for a given purpose'],
+      'adj': ['enough for a given purpose'],
     },
   ),
   Word(
-    word: "superbly",
+    word: 'superbly',
     definitions: {
-      "adv": ['excellently'],
+      'adv': ['excellently'],
     },
   ),
   Word(
-    word: "supine",
+    word: 'supine',
     definitions: {
-      "adj": ['laying back with the face upward (opposite position to prone)'],
+      'adj': ['laying back with the face upward (opposite position to prone)'],
     },
   ),
   Word(
-    word: "supplant",
+    word: 'supplant',
     definitions: {
-      "v": ['to overtake or replace'],
+      'v': ['to overtake or replace'],
     },
   ),
   Word(
-    word: "sycophant",
+    word: 'sycophant',
     definitions: {
-      "n": ['a fawning, insincere admirer'],
+      'n': ['a fawning, insincere admirer'],
     },
   ),
   Word(
-    word: "synthesize",
+    word: 'synthesize',
     definitions: {
-      "v": ['to combine disparate parts into a coherent whole'],
+      'v': ['to combine disparate parts into a coherent whole'],
     },
   ),
   Word(
-    word: "tacit",
+    word: 'tacit',
     definitions: {
-      "adj": ['unspoken; implicit'],
+      'adj': ['unspoken; implicit'],
     },
   ),
   Word(
-    word: "taciturn",
+    word: 'taciturn',
     definitions: {
-      "adj": ['reticent or reserved; tending towards silence'],
+      'adj': ['reticent or reserved; tending towards silence'],
     },
   ),
   Word(
-    word: "temperance",
+    word: 'temperance',
     definitions: {
-      "n": ['moderation and restraint, often in terms of alcohol consumption'],
+      'n': ['moderation and restraint, often in terms of alcohol consumption'],
     },
   ),
   Word(
-    word: "tenuous",
+    word: 'tenuous',
     definitions: {
-      "adj": ['weak, flimsy, insubstantial'],
+      'adj': ['weak, flimsy, insubstantial'],
     },
   ),
   Word(
-    word: "timorous",
+    word: 'timorous',
     definitions: {
-      "adj": ['meek or timid'],
+      'adj': ['meek or timid'],
     },
   ),
   Word(
-    word: "tirade",
+    word: 'tirade',
     definitions: {
-      "n": ['an angry rant'],
+      'n': ['an angry rant'],
     },
   ),
   Word(
-    word: "torpor",
+    word: 'torpor',
     definitions: {
-      "n": ['tiredness, lethargy'],
+      'n': ['tiredness, lethargy'],
     },
   ),
   Word(
-    word: "tortuous",
+    word: 'tortuous',
     definitions: {
-      "adj": ['winding or twisty', 'complicated'],
+      'adj': ['winding or twisty', 'complicated'],
     },
   ),
   Word(
-    word: "tractable",
+    word: 'tractable',
     definitions: {
-      "adj": ['can be easily influenced or managed'],
+      'adj': ['can be easily influenced or managed'],
     },
   ),
   Word(
-    word: "transient",
+    word: 'transient',
     definitions: {
-      "adj": ['passes quickly; short-lived'],
+      'adj': ['passes quickly; short-lived'],
     },
   ),
   Word(
-    word: "ubiquitous",
+    word: 'ubiquitous',
     definitions: {
-      "adj": ['ever-present or universal'],
+      'adj': ['ever-present or universal'],
     },
   ),
   Word(
-    word: "unadorned",
+    word: 'unadorned',
     definitions: {
-      "adj": ['plain; unembellished'],
+      'adj': ['plain; unembellished'],
     },
   ),
   Word(
-    word: "undermine",
+    word: 'undermine',
     definitions: {
-      "v": ['to weaken or compromise'],
+      'v': ['to weaken or compromise'],
     },
   ),
   Word(
-    word: "underscore",
+    word: 'underscore',
     definitions: {
-      "v": ['to line underneath for emphasis', 'to emphasize'],
+      'v': ['to line underneath for emphasis', 'to emphasize'],
     },
   ),
   Word(
-    word: "untenable",
+    word: 'untenable',
     definitions: {
-      "adj": ['describes a weak or unsupportable opinion or situation'],
+      'adj': ['describes a weak or unsupportable opinion or situation'],
     },
   ),
   Word(
-    word: "vacillate",
+    word: 'vacillate',
     definitions: {
-      "v": ['to shift between multiple options or opinions'],
+      'v': ['to shift between multiple options or opinions'],
     },
   ),
   Word(
-    word: "venality",
+    word: 'venality',
     definitions: {
-      "n": ['the state of being capable of being bribed'],
+      'n': ['the state of being capable of being bribed'],
     },
   ),
   Word(
-    word: "venerate",
+    word: 'venerate',
     definitions: {
-      "v": ['to give a high degree of respect; may border on worship'],
+      'v': ['to give a high degree of respect; may border on worship'],
     },
   ),
   Word(
-    word: "veracity",
+    word: 'veracity',
     definitions: {
-      "n": ['Truth and factual accuracy'],
+      'n': ['Truth and factual accuracy'],
     },
   ),
   Word(
-    word: "verbose",
+    word: 'verbose',
     definitions: {
-      "adj": ['long-winded; loquacious'],
+      'adj': ['long-winded; loquacious'],
     },
   ),
   Word(
-    word: "vexation",
+    word: 'vexation',
     definitions: {
-      "n": ['state of being frustrated, irritated, or concerned.'],
+      'n': ['state of being frustrated, irritated, or concerned.'],
     },
   ),
   Word(
-    word: "volatile",
+    word: 'volatile',
     definitions: {
-      "adj": ['easily changeable or extreme; unstable'],
+      'adj': ['easily changeable or extreme; unstable'],
     },
   ),
   Word(
-    word: "whimsical",
+    word: 'whimsical',
     definitions: {
-      "adj": ['fanciful or capricious'],
+      'adj': ['fanciful or capricious'],
     },
   ),
   Word(
-    word: "zeal",
+    word: 'zeal',
     definitions: {
-      "n": ['passion or fervor'],
+      'n': ['passion or fervor'],
     },
   ),
 ];

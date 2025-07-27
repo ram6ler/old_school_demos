@@ -1,5 +1,5 @@
 import 'dart:math' show Random;
-import "package:web/web.dart" as web;
+import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart' show Terminal;
 
 const rows = 6, columns = 7;
@@ -9,8 +9,8 @@ final rand = Random();
 final terminal = Terminal(
   rows: 15,
   columns: 31,
-  container: web.document.getElementById("four")! as web.HTMLElement,
-  backgroundColor: "#1f1f1f",
+  container: web.document.getElementById('four')! as web.HTMLElement,
+  backgroundColor: '#1f1f1f',
 )..focus();
 
 enum Position {
@@ -20,22 +20,22 @@ enum Position {
 
   @override
   String toString() => switch (this) {
-        o => "O",
-        x => "X",
-        empty => ".",
+        o => 'O',
+        x => 'X',
+        empty => '.',
       };
 
   String color() {
-    if (this == o) return "violet";
-    if (this == x) return "lightgreen";
-    return "gray";
+    if (this == o) return 'violet';
+    if (this == x) return 'lightgreen';
+    return 'gray';
   }
 }
 
 class Node {
   final state = [
-    for (var _ = 0; _ < rows; _++)
-      [for (var _ = 0; _ < columns; _++) Position.empty]
+    for (final _ in Iterable.generate(rows))
+      [for (final _ in Iterable.generate(columns)) Position.empty]
   ];
 
   Position player = Position.o;
@@ -60,7 +60,7 @@ class Node {
 
   bool wouldWin(int column) {
     final row = _finalRow(column);
-    if (row == -1) throw "Cannot move $column...";
+    if (row == -1) throw 'Cannot move $column...';
 
     bool helper(int dr, int dc) {
       var r = row, c = column, s = 1;
@@ -112,7 +112,7 @@ class Node {
       state[row][column] = player;
       return result;
     }
-    throw "Cannot make move: $column";
+    throw 'Cannot make move: $column';
   }
 
   Node copy() {
@@ -156,7 +156,7 @@ class Node {
       if (hasWon) {
         return m;
       }
-      for (var _ = 0; _ < n; _++) {
+      for (final _ in Iterable.generate(n)) {
         final winner = game.randomGameWinner();
         if (winner == player) {
           simData[m] = simData[m]! + 1;
@@ -174,7 +174,7 @@ class Node {
       for (var c = 0; c < columns; c++) {
         sb.write(state[r][c]);
       }
-      sb.write("\n");
+      sb.write('\n');
     }
     return sb.toString();
   }
@@ -209,7 +209,7 @@ Future<void> animate(Node game, int move, [bool show = true]) async {
         color: game.player.color());
   }
 
-  terminal.output("${move + 1}",
+  terminal.output('${move + 1}',
       row: rowOffset + rows, column: columnOffset + move * 2);
 }
 
@@ -220,15 +220,15 @@ void center(String message, int row) {
 
 Future<bool> getHumanFirst() async {
   terminal.clear();
-  center("Four-In-A-Line", 0);
-  final question = "Move first (y/n) ?";
+  center('Four-In-A-Line', 0);
+  final question = 'Move first (y/n) ?';
   center(question, 2);
-  var input = "";
+  var input = '';
   do {
     input = (await terminal.inputKey()).key;
-  } while (!"ynYN".contains(input));
-  center(" " * question.length, 2);
-  return input.toLowerCase() == "y";
+  } while (!'ynYN'.contains(input));
+  center(' ' * question.length, 2);
+  return input.toLowerCase() == 'y';
 }
 
 enum GameResult {
@@ -254,9 +254,9 @@ Future<GameResult> newGame() async {
 
     var okay = false, hasWon = false;
     if (!firstMove || (firstMove && humanFirst)) {
-      center("Your move (${game.player}).", 10);
+      center('Your move (${game.player}).', 10);
       while (!okay) {
-        final key = (await terminal.inputKey()).key, m = "1234567".indexOf(key);
+        final key = (await terminal.inputKey()).key, m = '1234567'.indexOf(key);
         if (game.validMoves.contains(m)) {
           okay = true;
           hasWon = game.move(m);
@@ -264,7 +264,7 @@ Future<GameResult> newGame() async {
           game.switchPlayers();
         }
       }
-      center(" " * 14, 10);
+      center(' ' * 14, 10);
       if (hasWon) {
         return GameResult.human;
       }
@@ -279,9 +279,9 @@ Future<GameResult> newGame() async {
     final computerMove = game.monteCarloMove(1000);
 
     hasWon = game.move(computerMove);
-    center("I choose ${computerMove + 1}.", 10);
+    center('I choose ${computerMove + 1}.', 10);
     await animate(game, computerMove);
-    center(" " * 11, 10);
+    center(' ' * 11, 10);
     if (hasWon) {
       return GameResult.computer;
     }
@@ -290,22 +290,22 @@ Future<GameResult> newGame() async {
   }
 }
 
-main() async {
+Future<void> main() async {
   while (true) {
     final gameResult = await newGame();
     switch (gameResult) {
       case GameResult.computer:
-        center("Computer wins!", 10);
+        center('Computer wins!', 10);
         break;
       case GameResult.human:
-        center("You win!", 10);
+        center('You win!', 10);
         break;
       case GameResult.tie:
-        center("A tie!", 10);
+        center('A tie!', 10);
     }
 
-    center("Press any key to", 12);
-    center("play again!", 13);
+    center('Press any key to', 12);
+    center('play again!', 13);
     await terminal.inputKey();
   }
 }

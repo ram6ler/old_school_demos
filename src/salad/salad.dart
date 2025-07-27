@@ -1,8 +1,8 @@
-import "dart:math" show Random;
-import "package:web/web.dart" as web;
-import "package:old_school/old_school.dart" as os;
-import "package:old_school/special_characters.dart" as sc;
-import "grid.dart";
+import 'dart:math' show Random;
+import 'package:web/web.dart' as web;
+import 'package:old_school/old_school.dart' as os;
+import 'package:old_school/special_characters.dart' as sc;
+import 'grid.dart';
 
 web.HTMLElement find(String id) =>
     web.document.getElementById(id) as web.HTMLElement;
@@ -12,22 +12,22 @@ final rand = Random(),
     board = os.Terminal(
       rows: (grid.size + 1) * 2 + 1,
       columns: (grid.size + 1) * 2 + 1,
-      container: find("salad"),
+      container: find('salad'),
       rowGap: 0,
       pixelWidth: 3,
       pixelHeight: 3,
       scrolls: false,
-      defaultColor: "lightgreen",
+      defaultColor: 'lightgreen',
     ),
     info = os.Terminal(
       rows: 17,
       columns: 40,
-      container: find("salad_info"),
+      container: find('salad_info'),
       pixelWidth: 2,
       pixelHeight: 3,
       scrolls: false,
       isInteractive: false,
-      defaultColor: "lightgreen",
+      defaultColor: 'lightgreen',
     );
 
 enum GameState { titleScreen, playing, wordFound, gameOver }
@@ -41,7 +41,7 @@ class Game {
   void showTitleScreen() {
     board.clear();
     info.clear();
-    for (final line in r"""
+    for (final line in r'''
   __      __          _  
   \ \    / /__ _ _ __| | 
    \ \/\/ / _ \ '_/ _` | 
@@ -51,8 +51,8 @@ class Game {
   |___/\__,_|_\__,_\__,_|                      
   
   Press any key to start! 
-   """
-        .split("\n")) {
+   '''
+        .split('\n')) {
       if (line.isNotEmpty) {
         info.output(line);
       }
@@ -63,7 +63,7 @@ class Game {
     board.clear();
     info
       ..clear()
-      ..output("Game Over!");
+      ..output('Game Over!');
   }
 
   void updatePartial(String partial, String color) {
@@ -79,35 +79,35 @@ class Game {
     final letter = grid.currentLetter, definitions = letter.word!.definitions;
     info.clear();
 
-    updatePartial(grid.currentLetter.partial, "white");
+    updatePartial(grid.currentLetter.partial, 'white');
 
     info
       ..output(
         definitions.values.any((defs) => defs.length > 1)
-            ? "Definitions:"
-            : "Definition:",
+            ? 'Definitions:'
+            : 'Definition:',
         row: 5,
       )
       ..newLine();
 
     for (final MapEntry(key: wordType, value: defs) in definitions.entries) {
-      info.output("${wordType}.");
-      final sb = StringBuffer(" ${sc.dot}");
+      info.output('$wordType.');
+      final sb = StringBuffer(' ${sc.dot}');
       for (final def in defs) {
-        final split = def.split(" ");
+        final split = def.split(' ');
         for (final text in split) {
-          if ((sb.toString() + " $text").length > 37) {
+          if (('${sb.toString()} $text').length > 37) {
             info.output(sb.toString());
             sb
               ..clear()
-              ..write("  ");
+              ..write('  ');
           }
-          sb.write(" $text");
+          sb.write(' $text');
         }
         info.output(sb.toString());
         sb
           ..clear()
-          ..write(" ${sc.dot}");
+          ..write(' ${sc.dot}');
       }
     }
   }
@@ -124,32 +124,32 @@ class Game {
     board
       ..clear()
       ..output(
-        " ${sc.downRight}"
-        "${(sc.horizontal * grid.size).split("").join(sc.downHorizontal)}"
-        "${sc.downLeft}",
+        ' ${sc.downRight}'
+        '${(sc.horizontal * grid.size).split('').join(sc.downHorizontal)}'
+        '${sc.downLeft}',
         row: 1,
-        color: "gray",
+        color: 'gray',
       );
     for (var i = 0; i < grid.size; i++) {
       board.output(
-        " ${sc.vertical}"
-        "${(" " * grid.size).split("").join(sc.vertical)}"
-        "${sc.vertical}",
-        color: "gray",
+        ' ${sc.vertical}'
+        '${(' ' * grid.size).split('').join(sc.vertical)}'
+        '${sc.vertical}',
+        color: 'gray',
       );
       if (i < grid.size - 1) {
         board.output(
-          " ${sc.verticalRight}"
-          "${(sc.horizontal * grid.size).split("").join(sc.verticalHorizontal)}"
-          "${sc.verticalLeft}",
-          color: "gray",
+          ' ${sc.verticalRight}'
+          '${(sc.horizontal * grid.size).split('').join(sc.verticalHorizontal)}'
+          '${sc.verticalLeft}',
+          color: 'gray',
         );
       } else {
         board.output(
-          " ${sc.upRight}"
-          "${(sc.horizontal * grid.size).split("").join(sc.upHorizontal)}"
-          "${sc.upLeft}",
-          color: "gray",
+          ' ${sc.upRight}'
+          '${(sc.horizontal * grid.size).split('').join(sc.upHorizontal)}'
+          '${sc.upLeft}',
+          color: 'gray',
         );
       }
     }
@@ -163,7 +163,7 @@ class Game {
         grid.peek(row, column),
         row: transform(row),
         column: transform(column),
-        color: "gray",
+        color: 'gray',
       );
       await Future.delayed(Duration(milliseconds: 25));
     }
@@ -176,19 +176,19 @@ class Game {
   void markCurrent(int row, int column) => board.setColor(
         row: transform(row),
         column: transform(column),
-        color: "yellow",
+        color: 'yellow',
       );
 
   void markVisited(int row, int column) => board.setColor(
         row: transform(row),
         column: transform(column),
-        color: "limegreen",
+        color: 'limegreen',
       );
 
   void markWrong(int row, int column) => board.setColor(
         row: transform(row),
         column: transform(column),
-        color: "orangered",
+        color: 'orangered',
       );
 }
 
@@ -221,18 +221,18 @@ Future<void> main() async {
             game
               ..markVisited(row, column)
               ..markCurrent(correctRow, correctColumn)
-              ..updatePartial(grid.currentLetter.partial, "white");
+              ..updatePartial(grid.currentLetter.partial, 'white');
 
             if (grid.currentWordIsComplete) {
               game
-                ..message("Good job! Press enter to continue!", "lightgreen")
+                ..message('Good job! Press enter to continue!', 'lightgreen')
                 ..markVisited(correctRow, correctColumn)
                 ..state = GameState.wordFound;
             }
           } else {
             game
-              ..message("Too bad! Press enter to continue!", "orangered")
-              ..updatePartial(grid.currentLetter.word!.word, "orangered")
+              ..message('Too bad! Press enter to continue!', 'orangered')
+              ..updatePartial(grid.currentLetter.word!.word, 'orangered')
               ..state = GameState.gameOver;
           }
         }

@@ -1,24 +1,24 @@
 // Data cribbed from Blockdude TI-89/V200 source code:
 // See https://www.ticalc.org/archives/files/fileinfo/206/20668.html.
 
-import "package:web/web.dart" as web;
+import 'package:web/web.dart' as web;
 
 enum Direction { left, right }
 
 enum Action { turn, stepForward, stepUp, stepDown, pickUp, putDown, reset }
 
 const passwords = [
-  "tcP",
-  "ARo",
-  "CKs",
-  "daN",
-  "BAH",
-  "Ion",
-  "Twe",
-  "nTy",
-  "iRC",
-  "JmK",
-  "wTF"
+  'tcP',
+  'ARo',
+  'CKs',
+  'daN',
+  'BAH',
+  'Ion',
+  'Twe',
+  'nTy',
+  'iRC',
+  'JmK',
+  'wTF'
 ];
 
 const _paddingRows = 5, _paddingColumns = 5;
@@ -62,7 +62,8 @@ class Level {
 
   Level(this.design)
       : data = [
-          for (final row in design) [for (var _ = 0; _ < row.length; _++) " "]
+          for (final row in design)
+            [for (final _ in Iterable.generate(row.length)) ' ']
         ] {
     reset();
   }
@@ -76,14 +77,14 @@ class Level {
       for (var column = 0; column < design[row].length; column++) {
         final c = design[row][column];
         switch (c) {
-          case "M":
+          case 'M':
             heroRow = row;
             heroColumn = column;
-            data[row][column] = " ";
-          case "D":
+            data[row][column] = ' ';
+          case 'D':
             doorRow = row;
             doorColumn = column;
-            data[row][column] = " ";
+            data[row][column] = ' ';
           case _:
             data[row][column] = c;
         }
@@ -130,15 +131,15 @@ class Level {
       case Action.reset:
         result = true;
       case Action.stepForward:
-        result = (!heroIsCarrying || up == " ") && front == " " && down != " ";
+        result = (!heroIsCarrying || up == ' ') && front == ' ' && down != ' ';
       case Action.stepDown:
-        result = (!heroIsCarrying || up == " ") && front == " " && down == " ";
+        result = (!heroIsCarrying || up == ' ') && front == ' ' && down == ' ';
       case Action.stepUp:
-        result = (!heroIsCarrying || upUp == " ") && up == " " && front != " ";
+        result = (!heroIsCarrying || upUp == ' ') && up == ' ' && front != ' ';
       case Action.pickUp:
-        result = !heroIsCarrying && front == "O" && up == " " && above == " ";
+        result = !heroIsCarrying && front == 'O' && up == ' ' && above == ' ';
       case Action.putDown:
-        result = heroIsCarrying && up == " ";
+        result = heroIsCarrying && up == ' ';
       case Action.turn:
         result = true;
         break;
@@ -157,7 +158,7 @@ class Level {
         case Action.stepDown:
           heroColumn += dc;
           var restRow = heroRow + 1;
-          while (data[restRow + 1][heroColumn] == " ") {
+          while (data[restRow + 1][heroColumn] == ' ') {
             restRow++;
           }
           heroRow = restRow;
@@ -165,16 +166,16 @@ class Level {
           heroColumn += dc;
           heroRow -= 1;
         case Action.pickUp:
-          data[heroRow][heroColumn + dc] = " ";
+          data[heroRow][heroColumn + dc] = ' ';
           heroIsCarrying = true;
         case Action.putDown:
           heroIsCarrying = false;
           var restRow = heroRow - 1;
           while (
-              restRow + 1 < rows && data[restRow + 1][heroColumn + dc] == " ") {
+              restRow + 1 < rows && data[restRow + 1][heroColumn + dc] == ' ') {
             restRow++;
           }
-          data[restRow][heroColumn + dc] = "O";
+          data[restRow][heroColumn + dc] = 'O';
         case Action.turn:
           heroDirection = heroDirection == Direction.left
               ? Direction.right
@@ -251,11 +252,11 @@ class Level {
     String character(int row, int column) {
       var result = data[row][column];
       if (row == heroRow - 1 && column == heroColumn && heroIsCarrying) {
-        result = "O";
+        result = 'O';
       } else if (row == doorRow && column == doorColumn) {
-        result = "D";
+        result = 'D';
       } else if (row == heroRow && column == heroColumn) {
-        result = heroDirection == Direction.left ? "<" : ">";
+        result = heroDirection == Direction.left ? '<' : '>';
       }
       return result;
     }
@@ -279,185 +280,185 @@ class Level {
 final levels = [
   for (final design in [
     [
-      "                    ",
-      "B                  B",
-      "B                  B",
-      "B                  B",
-      "B                  B",
-      "B                  B",
-      "B   B       B      B",
-      "BD  B   B O B O M  B",
-      "BBBBBBBBBBBBBBBBBBBB",
-      "                    ",
+      '                    ',
+      'B                  B',
+      'B                  B',
+      'B                  B',
+      'B                  B',
+      'B                  B',
+      'B   B       B      B',
+      'BD  B   B O B O M  B',
+      'BBBBBBBBBBBBBBBBBBBB',
+      '                    ',
     ],
     [
-      " B    BB        BB    ",
-      " B                B   ",
-      "BB                 B  ",
-      "BD                  B ",
-      "BB                   B",
-      " B           B  O    B",
-      " B           BO OOM  B",
-      " BBBBB   BBBBBBBBBBBBB",
-      "     B  OB            ",
-      "     BBBBB            ",
+      ' B    BB        BB    ',
+      ' B                B   ',
+      'BB                 B  ',
+      'BD                  B ',
+      'BB                   B',
+      ' B           B  O    B',
+      ' B           BO OOM  B',
+      ' BBBBB   BBBBBBBBBBBBB',
+      '     B  OB            ',
+      '     BBBBB            ',
     ],
     [
-      " B                 ",
-      " B   BBBBBBBBBBBBB ",
-      "B B B             B",
-      "B  B              B",
-      "B                OB",
-      "B               OOB",
-      "B BBB    M   BO BB ",
-      "B B B    B  BBBBB  ",
-      "B B BOO BB  B      ",
-      "BDB BBBBBB BB      ",
-      "BBB BB   BBB       ",
+      ' B                 ',
+      ' B   BBBBBBBBBBBBB ',
+      'B B B             B',
+      'B  B              B',
+      'B                OB',
+      'B               OOB',
+      'B BBB    M   BO BB ',
+      'B B B    B  BBBBB  ',
+      'B B BOO BB  B      ',
+      'BDB BBBBBB BB      ',
+      'BBB BB   BBB       ',
     ],
     [
-      "                  B     ",
-      "                 B B    ",
-      "       B        B   B   ",
-      "      B B      B     B  ",
-      "   BBB   B    B       B ",
-      "  B       B  B         B",
-      " B         BB          B",
-      " B                    OB",
-      " B                   OOB",
-      " B               M   BBB",
-      "BB    B          B   B  ",
-      "BD    B O        BBBBB  ",
-      "BBBBB B O   O  BBB      ",
-      "    B B O B BO B        ",
-      "    B BBBBBBBBBB        ",
-      "    BBB                 ",
+      '                  B     ',
+      '                 B B    ',
+      '       B        B   B   ',
+      '      B B      B     B  ',
+      '   BBB   B    B       B ',
+      '  B       B  B         B',
+      ' B         BB          B',
+      ' B                    OB',
+      ' B                   OOB',
+      ' B               M   BBB',
+      'BB    B          B   B  ',
+      'BD    B O        BBBBB  ',
+      'BBBBB B O   O  BBB      ',
+      '    B B O B BO B        ',
+      '    B BBBBBBBBBB        ',
+      '    BBB                 ',
     ],
     [
-      "     BBB    BBBBBBBBB ",
-      " BBBB   BBBB         B",
-      "B                    B",
-      "B                    B",
-      "B                    B",
-      "B     B              B",
-      "B     B              B",
-      "B     BOOOO          B",
-      "BD   BBBBBBBM        B",
-      "BB BBB     BB B     OB",
-      " B B        B BB   OOB",
-      " B B        B BB  OOOB",
-      " BBB        B BBBBBBBB",
-      "            BBB       ",
+      '     BBB    BBBBBBBBB ',
+      ' BBBB   BBBB         B',
+      'B                    B',
+      'B                    B',
+      'B                    B',
+      'B     B              B',
+      'B     B              B',
+      'B     BOOOO          B',
+      'BD   BBBBBBBM        B',
+      'BB BBB     BB B     OB',
+      ' B B        B BB   OOB',
+      ' B B        B BB  OOOB',
+      ' BBB        B BBBBBBBB',
+      '            BBB       ',
     ],
     [
-      " BBB             BBBB",
-      " B  BBBBBBBBBBBBB   B",
-      "BB                  B",
-      "BD                  B",
-      "BB                  B",
-      " B                OOB",
-      " BOO        B  O  BBB",
-      " BOOO       BMOOO B  ",
-      " BOOOO      BBBBB B  ",
-      " BBBBB    BBB   BBB  ",
-      "     B   OB          ",
-      "     BB BBB          ",
-      "      BBB            ",
+      ' BBB             BBBB',
+      ' B  BBBBBBBBBBBBB   B',
+      'BB                  B',
+      'BD                  B',
+      'BB                  B',
+      ' B                OOB',
+      ' BOO        B  O  BBB',
+      ' BOOO       BMOOO B  ',
+      ' BOOOO      BBBBB B  ',
+      ' BBBBB    BBB   BBB  ',
+      '     B   OB          ',
+      '     BB BBB          ',
+      '      BBB            ',
     ],
     [
-      "  B   BBBBB   BB   BBB  ",
-      " B B B     B B  B B   B ",
-      " B  BB      BB   BB    B",
-      " B   B       B    B    B",
-      " B                    OB",
-      " B                    OB",
-      "BB                   OOB",
-      "BD   O               BBB",
-      "BB   B O     B    BB B  ",
-      " B   B O    BB O MBBBB  ",
-      " BB  B OOO  BB OOOB     ",
-      "  B  BBBBBB BBBBBBB     ",
-      "  BB B    BBB           ",
-      "   BBB                  ",
+      '  B   BBBBB   BB   BBB  ',
+      ' B B B     B B  B B   B ',
+      ' B  BB      BB   BB    B',
+      ' B   B       B    B    B',
+      ' B                    OB',
+      ' B                    OB',
+      'BB                   OOB',
+      'BD   O               BBB',
+      'BB   B O     B    BB B  ',
+      ' B   B O    BB O MBBBB  ',
+      ' BB  B OOO  BB OOOB     ',
+      '  B  BBBBBB BBBBBBB     ',
+      '  BB B    BBB           ',
+      '   BBB                  ',
     ],
     [
-      " BBB       BBBB   BBBBBBB  ",
-      "B   B     B    B B       B ",
-      "B    B   B     BB         B",
-      "BO    BBB    B B     BBB  B",
-      "BOO         BB      BB B  B",
-      "BBBB       BB          BD B",
-      "   BB            BB    BB B",
-      "  B    O B      B  B      B",
-      "  B    OB B    B   B      B",
-      " B   BBB   B    B  B     OB",
-      " B      B B      BB     OOB",
-      "B        B           BBBBBB",
-      "B            O            B",
-      "B    O      BBB          OB",
-      "B   BBB                 OOB",
-      "B        O       O  M  OOOB",
-      "BBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      ' BBB       BBBB   BBBBBBB  ',
+      'B   B     B    B B       B ',
+      'B    B   B     BB         B',
+      'BO    BBB    B B     BBB  B',
+      'BOO         BB      BB B  B',
+      'BBBB       BB          BD B',
+      '   BB            BB    BB B',
+      '  B    O B      B  B      B',
+      '  B    OB B    B   B      B',
+      ' B   BBB   B    B  B     OB',
+      ' B      B B      BB     OOB',
+      'B        B           BBBBBB',
+      'B            O            B',
+      'B    O      BBB          OB',
+      'B   BBB                 OOB',
+      'B        O       O  M  OOOB',
+      'BBBBBBBBBBBBBBBBBBBBBBBBBBB',
     ],
     [
-      "        BBB         ",
-      "       B   B        ",
-      "      B     B  BBBBB",
-      "     B       BB    B",
-      "    B     O        B",
-      "   B      OO      OB",
-      "  B       BBB    OOB",
-      " B            M BBBB",
-      "B             O    B",
-      "BD           BBB   B",
-      "BB    BB   B      OB",
-      " B    BBO  BB   BBBB",
-      " B    BBBBBBB  BB   ",
-      " BBB  B     B BB    ",
-      "   B BB     BBB     ",
-      "   BBB              ",
+      '        BBB         ',
+      '       B   B        ',
+      '      B     B  BBBBB',
+      '     B       BB    B',
+      '    B     O        B',
+      '   B      OO      OB',
+      '  B       BBB    OOB',
+      ' B            M BBBB',
+      'B             O    B',
+      'BD           BBB   B',
+      'BB    BB   B      OB',
+      ' B    BBO  BB   BBBB',
+      ' B    BBBBBBB  BB   ',
+      ' BBB  B     B BB    ',
+      '   B BB     BBB     ',
+      '   BBB              ',
     ],
     [
-      "   BBBBBBBBBBBBBBBBBBBBB   ",
-      " BB           B         B  ",
-      "BBBBO       OOBO   OOO OBB ",
-      "B  BB  B   BBBBB  OBBB BB B",
-      "B   B  BB        BBB BBB  B",
-      "B   BB  BBOOOO            B",
-      "BD       BBBBBBB          B",
-      "BB        B   BBB        BB",
-      " B     O   B B  BB        B",
-      " B     B    B    BB       B",
-      " BBBB  BB             BBBBB",
-      "   BBBBB      M           B",
-      "   B          B           B",
-      "   B         BB    BBBBBBBB",
-      "   B        BB           B ",
-      "   B          O         OB ",
-      "   BO    BBBBBBBBBBB   OOB ",
-      "   BOO  BB         BB OOOB ",
-      "   BBBBBB           BBBBBB ",
+      '   BBBBBBBBBBBBBBBBBBBBB   ',
+      ' BB           B         B  ',
+      'BBBBO       OOBO   OOO OBB ',
+      'B  BB  B   BBBBB  OBBB BB B',
+      'B   B  BB        BBB BBB  B',
+      'B   BB  BBOOOO            B',
+      'BD       BBBBBBB          B',
+      'BB        B   BBB        BB',
+      ' B     O   B B  BB        B',
+      ' B     B    B    BB       B',
+      ' BBBB  BB             BBBBB',
+      '   BBBBB      M           B',
+      '   B          B           B',
+      '   B         BB    BBBBBBBB',
+      '   B        BB           B ',
+      '   B          O         OB ',
+      '   BO    BBBBBBBBBBB   OOB ',
+      '   BOO  BB         BB OOOB ',
+      '   BBBBBB           BBBBBB ',
     ],
     [
-      "BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-      "B  B   B                    B",
-      "B     OBOO            BBBBB B",
-      "BO   BBB OBB     O  BB  D B B",
-      "BOO    BBB   M  O       B B B",
-      "BBB  OOB     B O          B B",
-      "B   BBBB      B  BBB   BBB  B",
-      "BO            B B      B  O B",
-      "BOO       BBB B BO    B  BBBB",
-      "BBBB O   BBB  B BBO  B O B  B",
-      "B           O BBB  OB   B   B",
-      "B   O     OO B   BBBB       B",
-      "B    BBBBBBBBB        BBBBB B",
-      "B              O   OBB    B B",
-      "BBBB           O   B    OOB B",
-      "BOBB   B    B          BBBB B",
-      "BBOBBB B    B   OOO O       B",
-      "BOBOBOBB    B        OOO    B",
-      "BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      'BBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
+      'B  B   B                    B',
+      'B     OBOO            BBBBB B',
+      'BO   BBB OBB     O  BB  D B B',
+      'BOO    BBB   M  O       B B B',
+      'BBB  OOB     B O          B B',
+      'B   BBBB      B  BBB   BBB  B',
+      'BO            B B      B  O B',
+      'BOO       BBB B BO    B  BBBB',
+      'BBBB O   BBB  B BBO  B O B  B',
+      'B           O BBB  OB   B   B',
+      'B   O     OO B   BBBB       B',
+      'B    BBBBBBBBB        BBBBB B',
+      'B              O   OBB    B B',
+      'BBBB           O   B    OOB B',
+      'BOBB   B    B          BBBB B',
+      'BBOBBB B    B   OOO O       B',
+      'BOBOBOBB    B        OOO    B',
+      'BBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
     ]
   ])
     Level(design)

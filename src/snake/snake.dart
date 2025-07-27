@@ -1,6 +1,6 @@
 import 'dart:math' show Random, Point;
 import 'dart:async' show Timer;
-import "package:web/web.dart" as web;
+import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart' show Terminal;
 
 enum Value { nothing, apple, up, down, left, right, brick }
@@ -15,8 +15,8 @@ class Snake {
     this.columns,
     web.HTMLElement container,
   ) : values = [
-          for (var _ = 0; _ < rows; _++)
-            [for (var _ = 0; _ < columns; _++) Value.nothing]
+          for (final _ in Iterable.generate(rows))
+            [for (final _ in Iterable.generate(columns)) Value.nothing]
         ] {
     terminal = Terminal(
       rows: rows + 1,
@@ -67,7 +67,7 @@ class Snake {
 
             if (appleValue == 0) {
               delay = bonusOn ? 0 : 1;
-              terminal.output(" ", row: appleRow, column: appleColumn);
+              terminal.output(' ', row: appleRow, column: appleColumn);
               values[appleRow][appleColumn] = Value.nothing;
               if (!bonusOn) {
                 addBarrier();
@@ -89,12 +89,12 @@ class Snake {
     terminal.focus();
   }
 
-  static const nothing = " ",
-      snake = "#",
-      skin = "+",
-      apple = "o",
-      bonus = "P",
-      barrier = "x";
+  static const nothing = ' ',
+      snake = '#',
+      skin = '+',
+      apple = 'o',
+      bonus = 'P',
+      barrier = 'x';
 
   final int rows, columns;
   final trail = <Point<int>>[];
@@ -115,11 +115,11 @@ class Snake {
   void gameLoop() {
     switch (state) {
       case GameState.titleScreen:
-        title(["Snake!", "", "Press any key to start!"]);
+        title(['Snake!', '', 'Press any key to start!']);
         state = GameState.wait;
       case GameState.gameOver:
-        terminal.output(snake, row: headRow, column: headColumn, color: "red");
-        title([" Game Over! ", "", " Press any key to ", " play again! "]);
+        terminal.output(snake, row: headRow, column: headColumn, color: 'red');
+        title([' Game Over! ', '', ' Press any key to ', ' play again! ']);
         state = GameState.wait;
       case GameState.play:
         if (trail.isNotEmpty) {
@@ -144,7 +144,7 @@ class Snake {
           snake,
           row: headRow,
           column: headColumn,
-          color: "lightgreen",
+          color: 'lightgreen',
         );
       case GameState.wait:
         break;
@@ -155,7 +155,7 @@ class Snake {
     final value = values[tailRow][tailColumn];
     values[tailRow][tailColumn] = Value.nothing;
     if (leaveTrail) {
-      terminal.output(skin, row: tailRow, column: tailColumn, color: "red");
+      terminal.output(skin, row: tailRow, column: tailColumn, color: 'red');
       trail.add(Point(tailRow, tailColumn));
     } else {
       terminal.output(nothing, row: tailRow, column: tailColumn);
@@ -193,7 +193,7 @@ class Snake {
       case Value.apple:
         if (bonusOn) {
           score += 30;
-          for (var _ = 0; _ < 5; _++) {
+          for (final _ in Iterable.generate(5)) {
             tailFollow(true);
           }
         } else {
@@ -203,7 +203,7 @@ class Snake {
         updateApple();
       case Value.brick:
         delay += 3;
-      //terminal.setBackgroundAt(headRow, headColumn, "black");
+      //terminal.setBackgroundAt(headRow, headColumn, 'black');
       case Value.nothing:
         break;
       case _:
@@ -218,7 +218,7 @@ class Snake {
         message,
         row: row,
         column: (columns - message.length) ~/ 2,
-        color: "white", /*background: "black"*/
+        color: 'white', /*background: 'black'*/
       );
       row++;
     }
@@ -279,7 +279,7 @@ class Snake {
             ..setColor(
               row: r,
               column: c,
-              color: "red",
+              color: 'red',
             );
         }
       }
@@ -288,24 +288,23 @@ class Snake {
 
   void drawApple() {
     if (bonusOn) {
-      terminal.output(bonus, row: appleRow, column: appleColumn, color: "gold");
+      terminal.output(bonus, row: appleRow, column: appleColumn, color: 'gold');
     } else {
-      terminal.output(appleValue < 10 ? "$appleValue" : apple,
-          row: appleRow, column: appleColumn, color: "gold");
+      terminal.output(appleValue < 10 ? '$appleValue' : apple,
+          row: appleRow, column: appleColumn, color: 'gold');
     }
   }
 
   void updateApple() {
-    final scoreMessage = "Score: $score",
+    final scoreMessage = 'Score: $score',
         columnMessage = (columns - scoreMessage.length) ~/ 2;
     terminal.output(
-        (" " * columnMessage) +
+        (' ' * columnMessage) +
             scoreMessage +
-            (" " * (columns - scoreMessage.length - columnMessage)),
+            (' ' * (columns - scoreMessage.length - columnMessage)),
         row: rows,
         column: 0,
-        color: "white");
-    /*background: "rgb(100,100,100")*/;
+        color: 'white');
     do {
       appleRow = random.nextInt(rows);
       appleColumn = random.nextInt(columns);
@@ -327,10 +326,8 @@ class Snake {
   }
 }
 
-main() {
-  Snake(
-    30,
-    30,
-    web.document.getElementById("snake")! as web.HTMLElement,
-  );
-}
+void main() => Snake(
+      30,
+      30,
+      web.document.getElementById('snake')! as web.HTMLElement,
+    );

@@ -1,9 +1,9 @@
-import "package:web/web.dart" as web;
-import "package:old_school/old_school.dart" show Terminal;
-import "package:old_school/special_characters.dart" as sc;
-import "dart:math" show Random;
+import 'package:web/web.dart' as web;
+import 'package:old_school/old_school.dart' show Terminal;
+import 'package:old_school/special_characters.dart' as sc;
+import 'dart:math' show Random;
 
-import "package:old_school/old_school.dart";
+import 'package:old_school/old_school.dart';
 
 final rand = Random();
 
@@ -16,8 +16,8 @@ class Field {
 
   Field(int rows, int columns)
       : data = [
-          for (var _ = 0; _ < rows; _++)
-            [for (var _ = 0; _ < columns; _++) Cell()]
+          for (final _ in Iterable.generate(rows))
+            [for (final _ in Iterable.generate(columns)) Cell()]
         ];
 
   int get rows => data.length;
@@ -75,7 +75,7 @@ class Field {
 
   void init(double p) {
     final n = (p * rows * columns).round();
-    for (var _ = 0; _ < n; _++) {
+    for (final _ in Iterable.generate(n)) {
       var r = 0, c = 0;
       while (true) {
         r = rand.nextInt(rows);
@@ -187,11 +187,11 @@ class Field {
       return cell.isMarked ? sc.star : sc.squareFilled;
     }
     if (cell.hasMine) {
-      return "*";
+      return '*';
     }
     final n = _countNeighbors(r, c);
     if (n == 0) {
-      return ".";
+      return '.';
     }
     return n.toString();
   }
@@ -199,8 +199,8 @@ class Field {
   @override
   toString() => [
         for (var r = 0; r < rows; r++)
-          [for (var c = 0; c < columns; c++) _cellString(r, c)].join("")
-      ].join("\n");
+          [for (var c = 0; c < columns; c++) _cellString(r, c)].join('')
+      ].join('\n');
 }
 
 enum GameState { title, setup, play, win, lose }
@@ -208,18 +208,18 @@ enum GameState { title, setup, play, win, lose }
 class Game {
   static const rows = 17, columns = 35, rowOffset = 4, colOffset = 3;
   static const colors = {
-    ".": "rgb(150, 150, 150)",
-    "1": "rgb(236, 192, 109)",
-    "2": "rgb(234, 118, 67)",
-    "3": "rgb(235, 108, 108)",
-    "4": "rgb(229, 63, 63)",
-    "5": "rgb(107, 193, 235)",
-    "6": "rgb(23, 128, 234)",
-    "7": "rgb(193, 106, 236)",
-    "8": "rgb(130, 22, 236)",
-    "*": "orangered",
-    sc.star: "rgb(150, 150, 150)",
-    sc.squareFilled: "rgb(200,200,200)"
+    '.': 'rgb(150, 150, 150)',
+    '1': 'rgb(236, 192, 109)',
+    '2': 'rgb(234, 118, 67)',
+    '3': 'rgb(235, 108, 108)',
+    '4': 'rgb(229, 63, 63)',
+    '5': 'rgb(107, 193, 235)',
+    '6': 'rgb(23, 128, 234)',
+    '7': 'rgb(193, 106, 236)',
+    '8': 'rgb(130, 22, 236)',
+    '*': 'orangered',
+    sc.star: 'rgb(150, 150, 150)',
+    sc.squareFilled: 'rgb(200,200,200)'
   };
 
   var _markMode = false;
@@ -235,35 +235,35 @@ class Game {
       for (var r = 0; r < field.rows; r++) {
         terminal
           ..setCharacter(
-              row: rowOffset + r, column: colOffset - 1, character: " ")
+              row: rowOffset + r, column: colOffset - 1, character: ' ')
           ..setCharacter(
               row: rowOffset + r,
               column: colOffset + field.columns,
-              character: " ");
+              character: ' ');
       }
       for (var c = 0; c < field.columns; c++) {
         terminal
           ..setCharacter(
-              row: rowOffset - 1, column: colOffset + c, character: " ")
+              row: rowOffset - 1, column: colOffset + c, character: ' ')
           ..setCharacter(
               row: rowOffset + field.rows,
               column: colOffset + c,
-              character: " ");
+              character: ' ');
       }
       terminal
         ..setCharacter(
-            row: rowOffset - 1, column: colOffset - 1, character: " ")
+            row: rowOffset - 1, column: colOffset - 1, character: ' ')
         ..setCharacter(
             row: rowOffset - 1,
             column: colOffset + field.columns,
-            character: " ")
+            character: ' ')
         ..setCharacter(
-            row: rowOffset + field.rows, column: colOffset - 1, character: " ")
+            row: rowOffset + field.rows, column: colOffset - 1, character: ' ')
         ..setCharacter(
             row: rowOffset + field.rows,
             column: colOffset + field.columns,
-            character: " ")
-        ..output("Select", row: rowOffset - 2, column: colOffset);
+            character: ' ')
+        ..output('Select', row: rowOffset - 2, column: colOffset);
     } else {
       for (var r = 0; r < field.rows; r++) {
         terminal
@@ -300,7 +300,7 @@ class Game {
             row: rowOffset + field.rows,
             column: colOffset + field.columns,
             character: sc.upLeft)
-        ..output("Mark  ", row: rowOffset - 2, column: colOffset);
+        ..output('Mark  ', row: rowOffset - 2, column: colOffset);
     }
     _markMode = !_markMode;
   }
@@ -309,7 +309,7 @@ class Game {
     terminal = Terminal(
       rows: rows + 2 * rowOffset,
       columns: columns + 2 * colOffset,
-      container: web.document.querySelector("#mine") as web.HTMLElement,
+      container: web.document.querySelector('#mine') as web.HTMLElement,
       whenKeyIsReleased: (_, d) {
         if (d.keyCode == web.KeyCode.SPACE) {
           toggleMode();
@@ -322,7 +322,7 @@ class Game {
   var state = GameState.title;
 
   void showField() {
-    final lines = field.toString().split("\n");
+    final lines = field.toString().split('\n');
     for (var r = 0; r < lines.length; r++) {
       for (var c = 0; c < field.columns; c++) {
         final char = lines[r][c];
@@ -341,8 +341,8 @@ class Game {
         case GameState.title:
           terminal
             ..clear()
-            ..output(" ", row: 2);
-          for (final line in """
+            ..output(' ', row: 2);
+          for (final line in '''
   _____ _                               
  |     |_|___ ___ ___ _ _ _ ___ ___ ___ 
  | | | | |   | -_|_ -| | | | -_| -_| . |
@@ -353,8 +353,8 @@ class Game {
 
     SPACE
 
-      Toggle between "select" (no
-      border) and "mark" (border)
+      Toggle between 'select' (no
+      border) and 'mark' (border)
       mode.
       
     CLICK CELL
@@ -362,8 +362,8 @@ class Game {
       Select or mark cells.
            
   Click anywhere to begin!
-"""
-              .split("\n")) {
+'''
+              .split('\n')) {
             terminal.output(line);
           }
           await terminal.inputMouseClick();
@@ -393,9 +393,9 @@ class Game {
           }
         case GameState.win:
           terminal
-            ..output("Congratutations! You win!",
+            ..output('Congratutations! You win!',
                 row: 1, column: (columns + 2 * colOffset - 25) ~/ 2)
-            ..output("Click to continue.",
+            ..output('Click to continue.',
                 row: rowOffset + rows + 2,
                 column: (columns + 2 * colOffset - 18) ~/ 2);
           await terminal.inputMouseClick();
@@ -403,9 +403,9 @@ class Game {
 
         case GameState.lose:
           terminal
-            ..output("Boom! You lose!",
+            ..output('Boom! You lose!',
                 row: 1, column: (columns + 2 * colOffset - 15) ~/ 2)
-            ..output("Click to continue.",
+            ..output('Click to continue.',
                 row: rowOffset + rows + 2,
                 column: (columns + 2 * colOffset - 18) ~/ 2);
           await terminal.inputMouseClick();

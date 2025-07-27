@@ -1,14 +1,14 @@
-import "dart:math" show Random;
-import "dart:async" show Timer;
-import "package:web/web.dart" as web;
+import 'dart:math' show Random;
+import 'dart:async' show Timer;
+import 'package:web/web.dart' as web;
 
-import "package:old_school/old_school.dart" as os;
-import "package:old_school/special_characters.dart" as sc;
+import 'package:old_school/old_school.dart' as os;
+import 'package:old_school/special_characters.dart' as sc;
 
-const darkGreen = "#69b41e",
-    mediumGreen = "#8dc71e",
-    lightGreen = "#b8d53d",
-    red = "#f73644";
+const darkGreen = '#69b41e',
+    mediumGreen = '#8dc71e',
+    lightGreen = '#b8d53d',
+    red = '#f73644';
 
 class Hero {
   var row = 0, column = 0;
@@ -25,7 +25,7 @@ enum Cell {
   trail;
 
   String get character => switch (this) {
-        empty => " ",
+        empty => ' ',
         solid => sc.fullBlock,
         trail => sc.lightBlock,
       };
@@ -59,7 +59,7 @@ final keyMap = {
 };
 
 final terminalContainer =
-    web.document.querySelector("#bounce") as web.HTMLElement;
+    web.document.querySelector('#bounce') as web.HTMLElement;
 
 class Game {
   static const rows = 25, columns = 40, bouncerCapacity = 25;
@@ -72,7 +72,7 @@ class Game {
   }
 
   void updateInfo() {
-    final info = "Level: $level Score: $score";
+    final info = 'Level: $level Score: $score';
     terminal.output(
       info,
       row: rows + 1,
@@ -112,12 +112,14 @@ class Game {
 
   var state = GameState.titleScreenSetup;
 
-  final bouncers = [for (var _ = 0; _ < bouncerCapacity; _++) Bouncer()];
+  final bouncers = [
+    for (final _ in Iterable.generate(bouncerCapacity)) Bouncer()
+  ];
   var bouncerPointer = -1;
 
   var bouncerCount = 0;
   void createBouncer(int row, int column) {
-    for (var _ = 0; _ < bouncerCapacity; _++) {
+    for (final _ in Iterable.generate(bouncerCapacity)) {
       bouncerPointer = (bouncerPointer + 1) % bouncerCapacity;
       final bouncer = bouncers[bouncerPointer];
       if (!bouncer.isActive) {
@@ -328,13 +330,13 @@ class Game {
       case GameState.titleScreenSetup:
         terminal.clear();
         final lines = [
-          for (final line in """
+          for (final line in '''
 .----.                   
 |  o |---.-.-.---.---.---.
 |  o | o | | | | |  _| o_:
 '----'---'---'-'-'---'---'
-"""
-              .split("\n"))
+'''
+              .split('\n'))
             if (line.trim().isNotEmpty) line.padRight(28)
         ];
         for (final (i, line) in lines.indexed) {
@@ -346,7 +348,7 @@ class Game {
           );
         }
         terminal.output(
-          "Press Enter to Start!",
+          'Press Enter to Start!',
           row: 10,
           column: 10,
           color: lightGreen,
@@ -375,7 +377,7 @@ class Game {
             ..delayCount = 0;
         }
         bouncerCount = 0;
-        for (var _ = 0; _ < level; _++) {
+        for (final _ in Iterable.generate(level)) {
           createBouncer(
             rand.nextInt(rows - 2) + 1,
             rand.nextInt(columns - 2) + 1,
@@ -541,7 +543,7 @@ class Game {
             );
         } else {
           terminal.output(
-            "Game Over!",
+            'Game Over!',
             row: rows ~/ 2,
             column: 15,
             color: lightGreen,
