@@ -1,7 +1,7 @@
 name: old_school_demos
 description: Demos for the Dart library, Old School.
 version: 0.3.0
-homepage: https://github.com/ram6ler/old_school
+homepage: https://github.com/ram6ler/old_school_demos
 
 environment:
   sdk: ">=3.6.0 <4.0.0"
