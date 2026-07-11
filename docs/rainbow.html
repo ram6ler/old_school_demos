@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <a href="index.html">&lt; Back</a>
+        <a href="https://github.com/ram6ler/old_school"><img class="github-logo" src="img/github-mark-white.png"> Old
+            School<a href="https://github.com/ram6ler/old_school_demos"><img class="github-logo"
+                    src="img/github-mark-white.png"> Demo Source</a>
+
+    </nav>
+    <div class="container">
+        <div class="border" style="display: grid; grid-template-columns: auto auto; gap: 20pt;">
+            <div id="rainbow"></div>
+            <div class="info">
+                <p>Welcome to <em>Rainbow!</em></p>
+                <p>
+                    Arrange the tiles so that each column contains a single color, but you can only move a pile of tiles
+                    from one column to another if the bottom tile in the pile has the same color as the tile at the top
+                    of the column the pile is being moved to.
+                </p>
+                <p>
+                    A move consists of three characters representing the source column, row of the bottom of the pile
+                    and destination column. For example, the move <strong>b5a</strong> moves the pile in column
+                    <strong>b</strong> starting at row <strong>5</strong> to column <strong>a</strong> if that move is
+                    legal.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/rainbow.js"></script>
+</body>
+
+</html>

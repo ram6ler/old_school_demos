@@ -10,6 +10,7 @@ Future<void> main(final List<String> args) async {
           'mine',
           'othello',
           'poker',
+          'rainbow',
           'salad',
           'snake',
           'sokoban',
@@ -31,4 +32,7 @@ Future<void> main(final List<String> args) async {
     stdout.write(result.stdout);
     stderr.write(result.stderr);
   }
+
+  await Process.run('rm', ['docs/js/*.deps']);
+  await Process.run('rm', ['docs/js/*.map']);
 }

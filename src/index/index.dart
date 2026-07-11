@@ -45,6 +45,10 @@ void main() async {
           'to make decisions using only the same information',
           'available to the player.',
         ],
+        'rainbow': [
+          'A solitaire puzzle similar to Hanoi Towers, but with',
+          'constraints based on colors.',
+        ],
         'salad': ['Given definitions, find the words in a grid', 'of letters.'],
         'snake': [
           'Snake is version of the infamous snake game that',
