@@ -3,13 +3,15 @@ import 'package:old_school/old_school.dart';
 
 void main() async {
   const outputColor = 'lightgreen', errorColor = 'orange';
-  final terminal = Terminal(
-        rows: 35,
-        columns: 60,
-        container: web.document.getElementById('index')! as web.HTMLElement,
-      )
-        ..blur()
-        ..focus(),
+  final terminal =
+          Terminal(
+              rows: 35,
+              columns: 60,
+              container:
+                  web.document.getElementById('index')! as web.HTMLElement,
+            )
+            ..blur()
+            ..focus(),
       demos = {
         'blockdude': [
           'Block Dude is a game by Brandon Sterner and',
@@ -34,12 +36,8 @@ void main() async {
           'uses background Monte Carlo simulations to play a fairly',
           'intelligent game.',
         ],
-        'mine': [
-          'A minesweep clone.',
-        ],
-        'othello': [
-          'The game of Othello (Reversi).',
-        ],
+        'mine': ['A minesweep clone.'],
+        'othello': ['The game of Othello (Reversi).'],
         'poker': [
           'Poker squares. The computer uses background simulations',
           'to make decisions using only the same information',
@@ -58,6 +56,7 @@ void main() async {
           'Mother Hen is a Sokoban clone that demonstrates poking',
           'simple sprite data into the terminal graphics memory.',
         ],
+        'tetris': ['The classic game of tetris!'],
         'wordle': [
           'Word Logic is a Wordle clone that demonstrates a fairly',
           'complex program running in the terminal.',
@@ -165,8 +164,10 @@ void main() async {
         } else {
           terminal
             ..newLine()
-            ..output(" Not understood. Type 'help' for help.",
-                color: errorColor)
+            ..output(
+              " Not understood. Type 'help' for help.",
+              color: errorColor,
+            )
             ..newLine();
         }
     }

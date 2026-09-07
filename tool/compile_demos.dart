@@ -1,6 +1,6 @@
 import 'dart:io';
 
-Future<void> main(final List<String> args) async {
+Future<void> main(List<String> args) async {
   final demos = args.isEmpty
       ? [
           'blockdude',
@@ -14,6 +14,7 @@ Future<void> main(final List<String> args) async {
           'salad',
           'snake',
           'sokoban',
+          'tetris',
           'wordle',
           'four',
         ]

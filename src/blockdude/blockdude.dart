@@ -1,6 +1,7 @@
 import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart';
 import 'package:old_school/special_characters.dart' as character;
+
 import 'patterns.dart' show patterns, PatternKey;
 import 'levels.dart' show levels, passwords;
 
@@ -16,7 +17,7 @@ final terminal = Terminal(
   rowGap: 0,
 );
 
-bool drawLevel(final int levelIndex) {
+bool drawLevel(int levelIndex) {
   const row = 2, column = 1;
   final levelData = levels[levelIndex].draw(),
       width = levelData.data.first.length,
@@ -46,25 +47,25 @@ bool drawLevel(final int levelIndex) {
           character.downRight,
           character.downHorizontal,
           character.verticalRight,
-          character.verticalHorizontal
+          character.verticalHorizontal,
         ][getIndex(levelData.openLeft, levelData.openTop)],
         topRight = [
           character.downLeft,
           character.downHorizontal,
           character.verticalLeft,
-          character.verticalHorizontal
+          character.verticalHorizontal,
         ][getIndex(levelData.openRight, levelData.openTop)],
         bottomLeft = [
           character.upRight,
           character.upHorizontal,
           character.verticalRight,
-          character.verticalHorizontal
+          character.verticalHorizontal,
         ][getIndex(levelData.openLeft, levelData.openBottom)],
         bottomRight = [
           character.upLeft,
           character.upHorizontal,
           character.verticalLeft,
-          character.verticalHorizontal
+          character.verticalHorizontal,
         ][getIndex(levelData.openRight, levelData.openBottom)],
         top = levelData.openTop
             ? character.doubleHorizontal
@@ -72,10 +73,12 @@ bool drawLevel(final int levelIndex) {
         bottom = levelData.openBottom
             ? character.doubleHorizontal
             : character.horizontal,
-        left =
-            levelData.openLeft ? character.doubleVertical : character.vertical,
-        right =
-            levelData.openRight ? character.doubleVertical : character.vertical;
+        left = levelData.openLeft
+            ? character.doubleVertical
+            : character.vertical,
+        right = levelData.openRight
+            ? character.doubleVertical
+            : character.vertical;
     terminal
       ..clear()
       ..output('L${levelIndex + 1}', row: row - 1, column: column + 1)
@@ -87,11 +90,17 @@ bool drawLevel(final int levelIndex) {
       terminal.output(' ', row: row - 1, column: column + width ~/ 2 + 1);
     }
     if (levelData.openBottom) {
-      terminal.output('▼',
-          row: row + width + 2, column: column + width ~/ 2 + 1);
+      terminal.output(
+        '▼',
+        row: row + width + 2,
+        column: column + width ~/ 2 + 1,
+      );
     } else {
-      terminal.output(' ',
-          row: row + width + 2, column: column + width ~/ 2 + 1);
+      terminal.output(
+        ' ',
+        row: row + width + 2,
+        column: column + width ~/ 2 + 1,
+      );
     }
     if (levelData.openLeft) {
       terminal.output('◄', row: row + width ~/ 2, column: column - 1);
@@ -162,8 +171,12 @@ void centerMessage(String message, int row) {
 }
 
 void line(int row) {
-  terminal.output(character.horizontal * terminal.columns,
-      row: row, column: 0, newLineAfter: false);
+  terminal.output(
+    character.horizontal * terminal.columns,
+    row: row,
+    column: 0,
+    newLineAfter: false,
+  );
 }
 
 void showTitle() {
