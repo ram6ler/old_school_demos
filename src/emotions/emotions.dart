@@ -1,23 +1,20 @@
 import 'dart:math' show Random;
-import 'package:web/web.dart' as web;
+
 import 'package:old_school/old_school.dart';
+
 import 'graphics.dart';
 
 final rand = Random(),
     terminal = Terminal(
       rows: 24,
       columns: 20,
-      container: web.document.getElementById('emotions')! as web.HTMLElement,
+      containerId: 'emotions',
       isInteractive: true,
       rowGap: 0,
       pixelWidth: 3,
       pixelHeight: 3,
       defaultColor: 'lightgray',
-    )..output(
-        'Mixed Emotions!',
-        row: 2,
-        column: 3,
-      );
+    )..output('Mixed Emotions!', row: 2, column: 3);
 
 void main() async {
   terminal.focus();
@@ -34,18 +31,10 @@ void main() async {
       }
     }
     board.display();
-    terminal.output(
-      'Congratulations!',
-      row: -3,
-      column: 2,
-    );
+    terminal.output('Congratulations!', row: -3, column: 2);
 
     await terminal.inputMouseClick();
-    terminal.output(
-      ' ' * 16,
-      row: -3,
-      column: 2,
-    );
+    terminal.output(' ' * 16, row: -3, column: 2);
   }
 }
 
@@ -64,123 +53,101 @@ void swap(List<int> pieces, int i, int j) {
   pieces[j] = temp;
 }
 
-void drawFace(
-  int index,
-  int row,
-  int column,
-  bool onTile,
-  bool isCorrect,
-) {
+void drawFace(int index, int row, int column, bool onTile, bool isCorrect) {
   final r = rowOffset + 4 * row,
       c = columnOffset + 4 * column,
       tileColor = isCorrect ? correctTile : incorrectTile,
-      faceColor =
-          onTile ? (isCorrect ? correctFace : incorrectFace) : backgroundFace;
+      faceColor = onTile
+          ? (isCorrect ? correctFace : incorrectFace)
+          : backgroundFace;
 
   if (onTile) {
-    terminal
-      ..pokeCharacter(
-        row: r,
-        column: c,
+    terminal.screen
+      ..poke8Bit(
+        position: (r * 8, c * 8),
         data: edges[bottomRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r,
-        column: c + 1,
+      ..poke8Bit(
+        position: ((r) * 8, (c + 1) * 8),
         data: edges[bottomLeft | bottomRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r,
-        column: c + 2,
+      ..poke8Bit(
+        position: ((r) * 8, (c + 2) * 8),
         data: edges[bottomLeft | bottomRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r,
-        column: c + 3,
+      ..poke8Bit(
+        position: ((r) * 8, (c + 3) * 8),
         data: edges[bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 1,
-        column: c,
+      ..poke8Bit(
+        position: ((r + 1) * 8, (c) * 8),
         data: edges[topRight | bottomRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 1,
-        column: c + 1,
+      ..poke8Bit(
+        position: ((r + 1) * 8, (c + 1) * 8),
         data: edges[topRight | bottomRight | topLeft | bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 1,
-        column: c + 2,
+      ..poke8Bit(
+        position: ((r + 1) * 8, (c + 2) * 8),
         data: edges[topRight | bottomRight | topLeft | bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 2,
-        column: c,
+      ..poke8Bit(
+        position: ((r + 2) * 8, (c) * 8),
         data: edges[topRight | bottomRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 1,
-        column: c + 3,
+      ..poke8Bit(
+        position: ((r + 1) * 8, (c + 3) * 8),
         data: edges[topLeft | bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 2,
-        column: c + 3,
+      ..poke8Bit(
+        position: ((r + 2) * 8, (c + 3) * 8),
         data: edges[topLeft | bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 2,
-        column: c + 1,
+      ..poke8Bit(
+        position: ((r + 2) * 8, (c + 1) * 8),
         data: edges[topRight | bottomRight | topLeft | bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 2,
-        column: c + 2,
+      ..poke8Bit(
+        position: ((r + 2) * 8, (c + 2) * 8),
         data: edges[topRight | bottomRight | topLeft | bottomLeft],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 3,
-        column: c,
+      ..poke8Bit(
+        position: ((r + 3) * 8, (c) * 8),
         data: edges[topRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 3,
-        column: c + 1,
+      ..poke8Bit(
+        position: ((r + 3) * 8, (c + 1) * 8),
         data: edges[topLeft | topRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 3,
-        column: c + 2,
+      ..poke8Bit(
+        position: ((r + 3) * 8, (c + 2) * 8),
         data: edges[topLeft | topRight],
         color: tileColor,
       )
-      ..pokeCharacter(
-        row: r + 3,
-        column: c + 3,
+      ..poke8Bit(
+        position: ((r + 3) * 8, (c + 3) * 8),
         data: edges[topLeft],
         color: tileColor,
       );
   } else {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
-        terminal.pokeCharacter(
-          row: (r + i),
-          column: (c + j),
+        terminal.screen.poke8Bit(
+          position: ((r + i) * 8, (c + j) * 8),
           data: edges[0],
         );
       }
@@ -197,10 +164,10 @@ void drawFace(
 
 class Board {
   Board()
-      : positions = randomPieces(),
-        pieces = [for (final _ in Iterable.generate(16)) 0],
-        zeroRow = 0,
-        zeroColumn = 0 {
+    : positions = randomPieces(),
+      pieces = [for (final _ in Iterable.generate(16)) 0],
+      zeroRow = 0,
+      zeroColumn = 0 {
     for (var i = 0; i < 16; i++) {
       pieces[i] = positions[i];
       if (pieces[i] == 0) {
@@ -258,21 +225,9 @@ class Board {
     for (var i = 0; i < 16; i++) {
       final r = i ~/ 4, c = i % 4;
       if (r == zeroRow && c == zeroColumn) {
-        drawFace(
-          positions[i],
-          r,
-          c,
-          false,
-          pieces[i] == positions[i],
-        );
+        drawFace(positions[i], r, c, false, pieces[i] == positions[i]);
       } else {
-        drawFace(
-          pieces[i],
-          r,
-          c,
-          true,
-          pieces[i] == positions[i],
-        );
+        drawFace(pieces[i], r, c, true, pieces[i] == positions[i]);
       }
     }
   }

@@ -1,4 +1,3 @@
-import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart' as os;
 import 'package:old_school/special_characters.dart' as sc;
 
@@ -18,7 +17,7 @@ class Game {
   final terminal = os.Terminal(
     rows: 29,
     columns: 50,
-    container: web.document.getElementById('othello') as web.HTMLElement,
+    containerId: 'othello',
     backgroundColor: 'black',
     defaultColor: 'white',
     scrolls: false,
@@ -52,8 +51,12 @@ class Game {
         } else if (othello.cellIsOccupiedByCross(r, c)) {
           drawPiece(Player.cross, r, c);
         } else {
-          terminal.output(sc.dot,
-              row: fR(r), column: fC(c), color: 'lightgray');
+          terminal.output(
+            sc.dot,
+            row: fR(r),
+            column: fC(c),
+            color: 'lightgray',
+          );
         }
       }
     }

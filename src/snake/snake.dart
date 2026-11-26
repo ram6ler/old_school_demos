@@ -1,5 +1,6 @@
 import 'dart:math' show Random, Point;
 import 'dart:async' show Timer;
+
 import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart' show Terminal;
 
@@ -10,23 +11,23 @@ enum GameState { titleScreen, wait, play, gameOver }
 final random = Random();
 
 class Snake {
-  Snake(
-    this.rows,
-    this.columns,
-    web.HTMLElement container,
-  ) : values = [
-          for (final _ in Iterable.generate(rows))
-            [for (final _ in Iterable.generate(columns)) Value.nothing]
-        ] {
+  Snake(this.rows, this.columns, String containerId)
+    : values = [
+        for (final _ in Iterable.generate(rows))
+          [for (final _ in Iterable.generate(columns)) Value.nothing],
+      ] {
     terminal = Terminal(
       rows: rows + 1,
       columns: columns,
       rowGap: 0,
       scrolls: false,
-      container: container,
+      containerId: containerId,
       whenKeyIsPressed: (_, data) {
-        bool allow(int r, int c) => [Value.apple, Value.brick, Value.nothing]
-            .contains(values[r % rows][c % columns]);
+        bool allow(int r, int c) => [
+          Value.apple,
+          Value.brick,
+          Value.nothing,
+        ].contains(values[r % rows][c % columns]);
         switch (state) {
           case GameState.gameOver || GameState.titleScreen:
             break;
@@ -218,7 +219,7 @@ class Snake {
         message,
         row: row,
         column: (columns - message.length) ~/ 2,
-        color: 'white', /*background: 'black'*/
+        color: 'white' /*background: 'black'*/,
       );
       row++;
     }
@@ -239,8 +240,12 @@ class Snake {
       }
     }
 
-    direction =
-        [Value.up, Value.down, Value.left, Value.right][random.nextInt(4)];
+    direction = [
+      Value.up,
+      Value.down,
+      Value.left,
+      Value.right,
+    ][random.nextInt(4)];
 
     inputDirection = direction;
 
@@ -263,7 +268,7 @@ class Snake {
       [1, 0],
       [0, 0],
       [0, -1],
-      [0, 1]
+      [0, 1],
     ]) {
       final r = (row + d.first) % rows, c = (column + d.last) % columns;
       if (values[r][c] == Value.nothing) {
@@ -271,16 +276,8 @@ class Snake {
           // || random.nextBool()) {
           values[r][c] = Value.brick;
           terminal
-            ..setCharacter(
-              row: r,
-              column: c,
-              character: barrier,
-            )
-            ..setColor(
-              row: r,
-              column: c,
-              color: 'red',
-            );
+            ..setCharacter(row: r, column: c, character: barrier)
+            ..setColor(row: r, column: c, color: 'red');
         }
       }
     }
@@ -290,8 +287,12 @@ class Snake {
     if (bonusOn) {
       terminal.output(bonus, row: appleRow, column: appleColumn, color: 'gold');
     } else {
-      terminal.output(appleValue < 10 ? '$appleValue' : apple,
-          row: appleRow, column: appleColumn, color: 'gold');
+      terminal.output(
+        appleValue < 10 ? '$appleValue' : apple,
+        row: appleRow,
+        column: appleColumn,
+        color: 'gold',
+      );
     }
   }
 
@@ -299,12 +300,13 @@ class Snake {
     final scoreMessage = 'Score: $score',
         columnMessage = (columns - scoreMessage.length) ~/ 2;
     terminal.output(
-        (' ' * columnMessage) +
-            scoreMessage +
-            (' ' * (columns - scoreMessage.length - columnMessage)),
-        row: rows,
-        column: 0,
-        color: 'white');
+      (' ' * columnMessage) +
+          scoreMessage +
+          (' ' * (columns - scoreMessage.length - columnMessage)),
+      row: rows,
+      column: 0,
+      color: 'white',
+    );
     do {
       appleRow = random.nextInt(rows);
       appleColumn = random.nextInt(columns);
@@ -326,8 +328,4 @@ class Snake {
   }
 }
 
-void main() => Snake(
-      30,
-      30,
-      web.document.getElementById('snake')! as web.HTMLElement,
-    );
+void main() => Snake(30, 30, 'snake');

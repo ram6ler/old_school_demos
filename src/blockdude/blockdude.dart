@@ -8,7 +8,7 @@ import 'levels.dart' show levels, passwords;
 final terminal = Terminal(
   rows: 16,
   columns: 14,
-  container: web.document.getElementById('blockdude')! as web.HTMLElement,
+  containerId: 'blockdude',
   defaultColor: '#121',
   backgroundColor: 'rgb(158,172,135)',
   pixelWidth: 3,
@@ -134,9 +134,8 @@ bool drawLevel(int levelIndex) {
   final rOffset = 1, cOffset = 1;
 
   void putSprite(int r, int c, List<int> data) {
-    terminal.pokeCharacter(
-      row: row + r + rOffset,
-      column: column + c + cOffset,
+    terminal.screen.poke8Bit(
+      position: ((row + r + rOffset) * 8, (column + c + cOffset) * 8),
       data: data,
     );
   }

@@ -1,7 +1,7 @@
 import 'dart:math' show Random;
+
 import 'package:old_school/old_school.dart' as os;
 import 'package:old_school/special_characters.dart' as sc;
-import 'package:web/web.dart' as web;
 
 class Board {
   static final rand = Random(),
@@ -14,8 +14,8 @@ class Board {
             '#d0c310',
             '#69d025',
             '#4444dd',
-            '#12bdb9'
-          ][i]
+            '#12bdb9',
+          ][i],
       },
       keys = "abcdefg".split(''),
       movePattern = RegExp(
@@ -121,12 +121,7 @@ class Board {
             newLineAfter: false,
           );
         } else {
-          t.output(
-            '.',
-            row: r,
-            column: c,
-            newLineAfter: false,
-          );
+          t.output('.', row: r, column: c, newLineAfter: false);
         }
       }
     }
@@ -140,11 +135,7 @@ class Board {
 }
 
 Future<void> main() async {
-  final terminal = os.Terminal(
-        rows: 20,
-        columns: 20,
-        container: web.document.querySelector('#rainbow') as web.HTMLElement,
-      )
+  final terminal = os.Terminal(rows: 20, columns: 20, containerId: 'rainbow')
         ..output('Rainbow!', column: 6, row: 1)
         ..focus(),
       board = Board();
@@ -170,12 +161,7 @@ Future<void> main() async {
       case _:
         final result = board.makeMove(move);
         if (result.isNotEmpty) {
-          terminal.output(
-            result,
-            row: 17,
-            column: 1,
-            color: 'orangered',
-          );
+          terminal.output(result, row: 17, column: 1, color: 'orangered');
           await terminal.inputKey();
         } else {
           if (board.isSolved) {

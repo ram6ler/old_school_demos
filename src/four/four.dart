@@ -1,5 +1,5 @@
 import 'dart:math' show Random;
-import 'package:web/web.dart' as web;
+
 import 'package:old_school/old_school.dart' show Terminal;
 
 const rows = 6, columns = 7;
@@ -9,7 +9,7 @@ final rand = Random();
 final terminal = Terminal(
   rows: 15,
   columns: 31,
-  container: web.document.getElementById('four')! as web.HTMLElement,
+  containerId: 'four',
   backgroundColor: '#1f1f1f',
 )..focus();
 
@@ -20,10 +20,10 @@ enum Position {
 
   @override
   String toString() => switch (this) {
-        o => 'O',
-        x => 'X',
-        empty => '.',
-      };
+    o => 'O',
+    x => 'X',
+    empty => '.',
+  };
 
   String color() {
     if (this == o) return 'violet';
@@ -35,7 +35,7 @@ enum Position {
 class Node {
   final state = [
     for (final _ in Iterable.generate(rows))
-      [for (final _ in Iterable.generate(columns)) Position.empty]
+      [for (final _ in Iterable.generate(columns)) Position.empty],
   ];
 
   Position player = Position.o;
@@ -43,9 +43,9 @@ class Node {
   bool canMove(int column) => state[0][column] == Position.empty;
 
   List<int> get validMoves => [
-        for (var i = 0; i < columns; i++)
-          if (canMove(i)) i
-      ];
+    for (var i = 0; i < columns; i++)
+      if (canMove(i)) i,
+  ];
 
   int _finalRow(int column) {
     if (canMove(column)) {
@@ -164,7 +164,9 @@ class Node {
       }
     }
     return simData.keys.fold<int>(
-        simData.keys.first, (a, b) => simData[a]! > simData[b]! ? a : b);
+      simData.keys.first,
+      (a, b) => simData[a]! > simData[b]! ? a : b,
+    );
   }
 
   @override
@@ -186,31 +188,40 @@ Future<void> animate(Node game, int move, [bool show = true]) async {
   for (; r < rows; r++) {
     if (game.state[r][move] == Position.empty) {
       if (show) {
-        terminal.output(game.player.toString(),
-            row: rowOffset + r,
-            column: columnOffset + move * 2,
-            color: game.player.color());
+        terminal.output(
+          game.player.toString(),
+          row: rowOffset + r,
+          column: columnOffset + move * 2,
+          color: game.player.color(),
+        );
 
         await Future.delayed(Duration(milliseconds: 200));
       }
 
-      terminal.output(Position.empty.toString(),
-          row: rowOffset + r,
-          column: columnOffset + move * 2,
-          color: Position.empty.color());
+      terminal.output(
+        Position.empty.toString(),
+        row: rowOffset + r,
+        column: columnOffset + move * 2,
+        color: Position.empty.color(),
+      );
     } else {
       break;
     }
   }
   if (show) {
-    terminal.output(game.player.toString(),
-        row: rowOffset + r,
-        column: columnOffset + move * 2,
-        color: game.player.color());
+    terminal.output(
+      game.player.toString(),
+      row: rowOffset + r,
+      column: columnOffset + move * 2,
+      color: game.player.color(),
+    );
   }
 
-  terminal.output('${move + 1}',
-      row: rowOffset + rows, column: columnOffset + move * 2);
+  terminal.output(
+    '${move + 1}',
+    row: rowOffset + rows,
+    column: columnOffset + move * 2,
+  );
 }
 
 void center(String message, int row) {
@@ -231,11 +242,7 @@ Future<bool> getHumanFirst() async {
   return input.toLowerCase() == 'y';
 }
 
-enum GameResult {
-  human,
-  computer,
-  tie;
-}
+enum GameResult { human, computer, tie }
 
 Future<GameResult> newGame() async {
   final humanFirst = await getHumanFirst();

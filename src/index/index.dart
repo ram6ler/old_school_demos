@@ -3,15 +3,9 @@ import 'package:old_school/old_school.dart';
 
 void main() async {
   const outputColor = 'lightgreen', errorColor = 'orange';
-  final terminal =
-          Terminal(
-              rows: 35,
-              columns: 60,
-              container:
-                  web.document.getElementById('index')! as web.HTMLElement,
-            )
-            ..blur()
-            ..focus(),
+  final terminal = Terminal(rows: 35, columns: 60, containerId: 'index')
+        ..blur()
+        ..focus(),
       demos = {
         'blockdude': [
           'Block Dude is a game by Brandon Sterner and',
@@ -67,36 +61,36 @@ void main() async {
 
   void reset() {
     terminal.clear();
-    for (final line in [
-      ' ',
-      '  _____ _   _    _____     _           _',
-      ' :     : :_: :  :   __:___: :_ ___ ___: :',
-      ' :  :  : : . :  :__   :  _:   : . : . : :',
-      ' :_____:_:___:  :_____:___:_:_:___:___:_:',
-      ' ',
-      ' Welcome to Old School, a library for adding',
-      ' old school terminals to your html documents.',
-      ' ',
-      " Input 'help' for help.",
-      ' ',
-    ]) {
+    for (final line
+        in '''
+   _____ _   _    _____     _           _
+  :     : :_: :  :   __:___: :_ ___ ___: :
+  :  :  : : . :  :__   :  _:   : . : . : :
+  :_____:_:___:  :_____:___:_:_:___:___:_:
+  
+  Welcome to Old School, a library for adding
+  old school terminals to your html documents.
+  
+  Input 'help' for help.
+      '''
+            .split('\n')) {
       terminal.output(line, color: outputColor);
     }
   }
 
   void help() {
-    for (final line in [
-      ' ',
-      ' Commands',
-      ' --------',
-      ' ',
-      ' reset        Resets this demo.',
-      ' help         Shows this information.',
-      ' list         Lists the demos available.',
-      ' info [demo]  Gives a description of [demo].',
-      ' load [demo]  Loads [demo] into this page.',
-      ' ',
-    ]) {
+    for (final line
+        in '''
+  Commands
+  --------
+  
+  reset        Resets this demo.
+  help         Shows this information.
+  list         Lists the demos available.
+  info [demo]  Gives a description of [demo].
+  load [demo]  Loads [demo] into this page.
+      '''
+            .split('\n')) {
       terminal.output(line, color: outputColor);
     }
   }

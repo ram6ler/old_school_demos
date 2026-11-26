@@ -1,13 +1,15 @@
 import 'dart:async';
 import 'dart:math' show Random;
+
 import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart';
+
 import 'wordle_words.dart';
 
 final gameTerminal = Terminal(
   rows: 30,
   columns: 40,
-  container: web.document.getElementById('wordle')! as web.HTMLDivElement,
+  containerId: 'wordle',
   isInteractive: true,
   rowGap: 2,
 );
@@ -52,7 +54,7 @@ Set<String> showClue(String guess, List<Clue> clues) {
     final color = {
       Clue.correct: colorCorrect,
       Clue.incorrect: colorIncorrect,
-      Clue.position: colorPosition
+      Clue.position: colorPosition,
     }[clues[i]]!;
     result.add(guess[i]);
     gameTerminal.output(guess[i], color: color, newLineAfter: false);
@@ -84,9 +86,10 @@ Future<String> inputWord(int turn) async {
   var guess = '';
   gameTerminal.output('Guess number $turn...');
   while (true) {
-    guess =
-        (await gameTerminal.input(prompt: 'What is your guess? ', length: 5))
-            .toLowerCase();
+    guess = (await gameTerminal.input(
+      prompt: 'What is your guess? ',
+      length: 5,
+    )).toLowerCase();
     if (guess == 'show' || guess == 'quit' || expected.hasMatch(guess)) {
       completer.complete(guess);
       break;
@@ -214,8 +217,10 @@ Future<void> main() async {
         ..output(secretWord, color: colorCorrect, newLineAfter: false)
         ..output('.');
     }
-  } while ((await gameTerminal.input(prompt: 'Play again (y/n) ? ', length: 1))
-          .toLowerCase() ==
+  } while ((await gameTerminal.input(
+        prompt: 'Play again (y/n) ? ',
+        length: 1,
+      )).toLowerCase() ==
       'y');
   gameTerminal
     ..clear()

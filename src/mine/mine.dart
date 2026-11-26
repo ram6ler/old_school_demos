@@ -1,6 +1,7 @@
 import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart' show Terminal;
 import 'package:old_school/special_characters.dart' as sc;
+
 import 'dart:math' show Random;
 
 import 'package:old_school/old_school.dart';
@@ -15,10 +16,10 @@ class Field {
   final List<List<Cell>> data;
 
   Field(int rows, int columns)
-      : data = [
-          for (final _ in Iterable.generate(rows))
-            [for (final _ in Iterable.generate(columns)) Cell()]
-        ];
+    : data = [
+        for (final _ in Iterable.generate(rows))
+          [for (final _ in Iterable.generate(columns)) Cell()],
+      ];
 
   int get rows => data.length;
 
@@ -198,9 +199,9 @@ class Field {
 
   @override
   toString() => [
-        for (var r = 0; r < rows; r++)
-          [for (var c = 0; c < columns; c++) _cellString(r, c)].join('')
-      ].join('\n');
+    for (var r = 0; r < rows; r++)
+      [for (var c = 0; c < columns; c++) _cellString(r, c)].join(''),
+  ].join('\n');
 }
 
 enum GameState { title, setup, play, win, lose }
@@ -219,7 +220,7 @@ class Game {
     '8': 'rgb(130, 22, 236)',
     '*': 'orangered',
     sc.star: 'rgb(150, 150, 150)',
-    sc.squareFilled: 'rgb(200,200,200)'
+    sc.squareFilled: 'rgb(200,200,200)',
   };
 
   var _markMode = false;
@@ -235,71 +236,99 @@ class Game {
       for (var r = 0; r < field.rows; r++) {
         terminal
           ..setCharacter(
-              row: rowOffset + r, column: colOffset - 1, character: ' ')
+            row: rowOffset + r,
+            column: colOffset - 1,
+            character: ' ',
+          )
           ..setCharacter(
-              row: rowOffset + r,
-              column: colOffset + field.columns,
-              character: ' ');
+            row: rowOffset + r,
+            column: colOffset + field.columns,
+            character: ' ',
+          );
       }
       for (var c = 0; c < field.columns; c++) {
         terminal
           ..setCharacter(
-              row: rowOffset - 1, column: colOffset + c, character: ' ')
+            row: rowOffset - 1,
+            column: colOffset + c,
+            character: ' ',
+          )
           ..setCharacter(
-              row: rowOffset + field.rows,
-              column: colOffset + c,
-              character: ' ');
+            row: rowOffset + field.rows,
+            column: colOffset + c,
+            character: ' ',
+          );
       }
       terminal
         ..setCharacter(
-            row: rowOffset - 1, column: colOffset - 1, character: ' ')
+          row: rowOffset - 1,
+          column: colOffset - 1,
+          character: ' ',
+        )
         ..setCharacter(
-            row: rowOffset - 1,
-            column: colOffset + field.columns,
-            character: ' ')
+          row: rowOffset - 1,
+          column: colOffset + field.columns,
+          character: ' ',
+        )
         ..setCharacter(
-            row: rowOffset + field.rows, column: colOffset - 1, character: ' ')
+          row: rowOffset + field.rows,
+          column: colOffset - 1,
+          character: ' ',
+        )
         ..setCharacter(
-            row: rowOffset + field.rows,
-            column: colOffset + field.columns,
-            character: ' ')
+          row: rowOffset + field.rows,
+          column: colOffset + field.columns,
+          character: ' ',
+        )
         ..output('Select', row: rowOffset - 2, column: colOffset);
     } else {
       for (var r = 0; r < field.rows; r++) {
         terminal
           ..setCharacter(
-              row: rowOffset + r, column: colOffset - 1, character: sc.vertical)
+            row: rowOffset + r,
+            column: colOffset - 1,
+            character: sc.vertical,
+          )
           ..setCharacter(
-              row: rowOffset + r,
-              column: colOffset + field.columns,
-              character: sc.vertical);
+            row: rowOffset + r,
+            column: colOffset + field.columns,
+            character: sc.vertical,
+          );
       }
       for (var c = 0; c < field.columns; c++) {
         terminal
           ..setCharacter(
-              row: rowOffset - 1,
-              column: colOffset + c,
-              character: sc.horizontal)
+            row: rowOffset - 1,
+            column: colOffset + c,
+            character: sc.horizontal,
+          )
           ..setCharacter(
-              row: rowOffset + field.rows,
-              column: colOffset + c,
-              character: sc.horizontal);
+            row: rowOffset + field.rows,
+            column: colOffset + c,
+            character: sc.horizontal,
+          );
       }
       terminal
         ..setCharacter(
-            row: rowOffset - 1, column: colOffset - 1, character: sc.downRight)
+          row: rowOffset - 1,
+          column: colOffset - 1,
+          character: sc.downRight,
+        )
         ..setCharacter(
-            row: rowOffset - 1,
-            column: colOffset + field.columns,
-            character: sc.downLeft)
+          row: rowOffset - 1,
+          column: colOffset + field.columns,
+          character: sc.downLeft,
+        )
         ..setCharacter(
-            row: rowOffset + field.rows,
-            column: colOffset - 1,
-            character: sc.upRight)
+          row: rowOffset + field.rows,
+          column: colOffset - 1,
+          character: sc.upRight,
+        )
         ..setCharacter(
-            row: rowOffset + field.rows,
-            column: colOffset + field.columns,
-            character: sc.upLeft)
+          row: rowOffset + field.rows,
+          column: colOffset + field.columns,
+          character: sc.upLeft,
+        )
         ..output('Mark  ', row: rowOffset - 2, column: colOffset);
     }
     _markMode = !_markMode;
@@ -309,7 +338,7 @@ class Game {
     terminal = Terminal(
       rows: rows + 2 * rowOffset,
       columns: columns + 2 * colOffset,
-      container: web.document.querySelector('#mine') as web.HTMLElement,
+      containerId: 'mine',
       whenKeyIsReleased: (_, d) {
         if (d.keyCode == web.KeyCode.SPACE) {
           toggleMode();
@@ -328,9 +357,15 @@ class Game {
         final char = lines[r][c];
         terminal
           ..setCharacter(
-              row: r + rowOffset, column: c + colOffset, character: lines[r][c])
+            row: r + rowOffset,
+            column: c + colOffset,
+            character: lines[r][c],
+          )
           ..setColor(
-              row: r + rowOffset, column: c + colOffset, color: colors[char]!);
+            row: r + rowOffset,
+            column: c + colOffset,
+            color: colors[char]!,
+          );
       }
     }
   }
@@ -342,7 +377,8 @@ class Game {
           terminal
             ..clear()
             ..output(' ', row: 2);
-          for (final line in '''
+          for (final line
+              in '''
   _____ _                               
  |     |_|___ ___ ___ _ _ _ ___ ___ ___ 
  | | | | |   | -_|_ -| | | | -_| -_| . |
@@ -363,7 +399,7 @@ class Game {
            
   Click anywhere to begin!
 '''
-              .split('\n')) {
+                  .split('\n')) {
             terminal.output(line);
           }
           await terminal.inputMouseClick();
@@ -393,21 +429,31 @@ class Game {
           }
         case GameState.win:
           terminal
-            ..output('Congratutations! You win!',
-                row: 1, column: (columns + 2 * colOffset - 25) ~/ 2)
-            ..output('Click to continue.',
-                row: rowOffset + rows + 2,
-                column: (columns + 2 * colOffset - 18) ~/ 2);
+            ..output(
+              'Congratutations! You win!',
+              row: 1,
+              column: (columns + 2 * colOffset - 25) ~/ 2,
+            )
+            ..output(
+              'Click to continue.',
+              row: rowOffset + rows + 2,
+              column: (columns + 2 * colOffset - 18) ~/ 2,
+            );
           await terminal.inputMouseClick();
           state = GameState.title;
 
         case GameState.lose:
           terminal
-            ..output('Boom! You lose!',
-                row: 1, column: (columns + 2 * colOffset - 15) ~/ 2)
-            ..output('Click to continue.',
-                row: rowOffset + rows + 2,
-                column: (columns + 2 * colOffset - 18) ~/ 2);
+            ..output(
+              'Boom! You lose!',
+              row: 1,
+              column: (columns + 2 * colOffset - 15) ~/ 2,
+            )
+            ..output(
+              'Click to continue.',
+              row: rowOffset + rows + 2,
+              column: (columns + 2 * colOffset - 18) ~/ 2,
+            );
           await terminal.inputMouseClick();
           state = GameState.title;
       }

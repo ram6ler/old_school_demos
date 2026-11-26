@@ -18,7 +18,7 @@ const rowOffset = 2,
 final terminal = os.Terminal(
   rows: 28,
   columns: 35,
-  container: web.document.querySelector('#tetris') as web.HTMLDivElement,
+  containerId: 'tetris',
   rowGap: 0,
   pixelHeight: 3,
   pixelWidth: 3,

@@ -1,18 +1,17 @@
 import 'dart:math' show Random;
+
 import 'package:web/web.dart' as web;
 import 'package:old_school/old_school.dart' as os;
 import 'package:old_school/special_characters.dart' as sc;
-import 'grid.dart';
 
-web.HTMLElement find(String id) =>
-    web.document.getElementById(id) as web.HTMLElement;
+import 'grid.dart';
 
 final rand = Random(),
     grid = Grid(),
     board = os.Terminal(
       rows: (grid.size + 1) * 2 + 1,
       columns: (grid.size + 1) * 2 + 1,
-      container: find('salad'),
+      containerId: 'salad',
       rowGap: 0,
       pixelWidth: 3,
       pixelHeight: 3,
@@ -22,7 +21,7 @@ final rand = Random(),
     info = os.Terminal(
       rows: 17,
       columns: 40,
-      container: find('salad_info'),
+      containerId: 'salad_info',
       pixelWidth: 2,
       pixelHeight: 3,
       scrolls: false,
@@ -41,7 +40,8 @@ class Game {
   void showTitleScreen() {
     board.clear();
     info.clear();
-    for (final line in r'''
+    for (final line
+        in r'''
   __      __          _  
   \ \    / /__ _ _ __| | 
    \ \/\/ / _ \ '_/ _` | 
@@ -52,7 +52,7 @@ class Game {
   
   Press any key to start! 
    '''
-        .split('\n')) {
+            .split('\n')) {
       if (line.isNotEmpty) {
         info.output(line);
       }
@@ -113,11 +113,11 @@ class Game {
   }
 
   void message(String text, String color) => info.output(
-        text,
-        row: info.rows - 2,
-        //column: (info.columns - text.length) ~/ 2,
-        color: color,
-      );
+    text,
+    row: info.rows - 2,
+    //column: (info.columns - text.length) ~/ 2,
+    color: color,
+  );
 
   Future<void> fillTiles() async {
     info.clear();
@@ -174,22 +174,22 @@ class Game {
   }
 
   void markCurrent(int row, int column) => board.setColor(
-        row: transform(row),
-        column: transform(column),
-        color: 'yellow',
-      );
+    row: transform(row),
+    column: transform(column),
+    color: 'yellow',
+  );
 
   void markVisited(int row, int column) => board.setColor(
-        row: transform(row),
-        column: transform(column),
-        color: 'limegreen',
-      );
+    row: transform(row),
+    column: transform(column),
+    color: 'limegreen',
+  );
 
   void markWrong(int row, int column) => board.setColor(
-        row: transform(row),
-        column: transform(column),
-        color: 'orangered',
-      );
+    row: transform(row),
+    column: transform(column),
+    color: 'orangered',
+  );
 }
 
 Future<void> main() async {

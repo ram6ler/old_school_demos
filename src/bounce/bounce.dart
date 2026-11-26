@@ -1,5 +1,6 @@
 import 'dart:math' show Random;
 import 'dart:async' show Timer;
+
 import 'package:web/web.dart' as web;
 
 import 'package:old_school/old_school.dart' as os;
@@ -25,16 +26,16 @@ enum Cell {
   trail;
 
   String get character => switch (this) {
-        empty => ' ',
-        solid => sc.fullBlock,
-        trail => sc.lightBlock,
-      };
+    empty => ' ',
+    solid => sc.fullBlock,
+    trail => sc.lightBlock,
+  };
 
   String get color => switch (this) {
-        empty => darkGreen,
-        solid => darkGreen,
-        trail => lightGreen,
-      };
+    empty => darkGreen,
+    solid => darkGreen,
+    trail => lightGreen,
+  };
 }
 
 enum GameState {
@@ -57,9 +58,6 @@ final keyMap = {
   web.KeyCode.RIGHT: false,
   web.KeyCode.ENTER: false,
 };
-
-final terminalContainer =
-    web.document.querySelector('#bounce') as web.HTMLElement;
 
 class Game {
   static const rows = 25, columns = 40, bouncerCapacity = 25;
@@ -86,7 +84,7 @@ class Game {
   final terminal = os.Terminal(
     rows: rows + 2,
     columns: columns,
-    container: terminalContainer,
+    containerId: 'bounce',
     rowGap: 0,
     whenKeyIsPressed: (terminal, data) {
       if (keyMap.containsKey(data.keyCode)) {
@@ -106,14 +104,14 @@ class Game {
         for (var c = 0; c < columns; c++)
           r == 0 || r == rows - 1 || c == 0 || c == columns - 1
               ? Cell.solid
-              : Cell.empty
-      ]
+              : Cell.empty,
+      ],
   ];
 
   var state = GameState.titleScreenSetup;
 
   final bouncers = [
-    for (final _ in Iterable.generate(bouncerCapacity)) Bouncer()
+    for (final _ in Iterable.generate(bouncerCapacity)) Bouncer(),
   ];
   var bouncerPointer = -1;
 
@@ -242,16 +240,8 @@ class Game {
       }
       world[r][c] = Cell.solid;
       terminal
-        ..setCharacter(
-          row: r,
-          column: c,
-          character: Cell.solid.character,
-        )
-        ..setColor(
-          row: r,
-          column: c,
-          color: Cell.solid.color,
-        );
+        ..setCharacter(row: r, column: c, character: Cell.solid.character)
+        ..setColor(row: r, column: c, color: Cell.solid.color);
     }
   }
 
@@ -309,16 +299,8 @@ class Game {
             ? Cell.solid
             : Cell.empty;
         terminal
-          ..setCharacter(
-            row: r,
-            column: c,
-            character: world[r][c].character,
-          )
-          ..setColor(
-            row: r,
-            column: c,
-            color: world[r][c].color,
-          );
+          ..setCharacter(row: r, column: c, character: world[r][c].character)
+          ..setColor(row: r, column: c, color: world[r][c].color);
       }
     }
   }
@@ -330,22 +312,18 @@ class Game {
       case GameState.titleScreenSetup:
         terminal.clear();
         final lines = [
-          for (final line in '''
+          for (final line
+              in '''
 .----.                   
 |  o |---.-.-.---.---.---.
 |  o | o | | | | |  _| o_:
 '----'---'---'-'-'---'---'
 '''
-              .split('\n'))
-            if (line.trim().isNotEmpty) line.padRight(28)
+                  .split('\n'))
+            if (line.trim().isNotEmpty) line.padRight(28),
         ];
         for (final (i, line) in lines.indexed) {
-          terminal.output(
-            line,
-            row: i + 5,
-            column: 7,
-            color: mediumGreen,
-          );
+          terminal.output(line, row: i + 5, column: 7, color: mediumGreen);
         }
         terminal.output(
           'Press Enter to Start!',
@@ -454,11 +432,7 @@ class Game {
             column: hero.column,
             character: sc.squareFilled,
           )
-          ..setColor(
-            row: hero.row,
-            column: hero.column,
-            color: lightGreen,
-          );
+          ..setColor(row: hero.row, column: hero.column, color: lightGreen);
         moveBouncers();
 
       case GameState.playFill:
@@ -470,16 +444,8 @@ class Game {
             playFillCells.remove((r, c));
             world[r][c] = Cell.solid;
             terminal
-              ..setCharacter(
-                row: r,
-                column: c,
-                character: Cell.solid.character,
-              )
-              ..setColor(
-                row: r,
-                column: c,
-                color: Cell.solid.color,
-              );
+              ..setCharacter(row: r, column: c, character: Cell.solid.character)
+              ..setColor(row: r, column: c, color: Cell.solid.color);
           }
         }
 
@@ -489,7 +455,7 @@ class Game {
           levelFillCells.addAll([
             for (var r = 0; r < rows; r++)
               for (var c = 0; c < columns; c++)
-                if (world[r][c] == Cell.empty) (r, c)
+                if (world[r][c] == Cell.empty) (r, c),
           ]);
           state = GameState.levelFill;
         } else {
@@ -502,16 +468,8 @@ class Game {
           for (final (r, c) in next) {
             levelFillCells.remove((r, c));
             terminal
-              ..setCharacter(
-                row: r,
-                column: c,
-                character: sc.mediumBlock,
-              )
-              ..setColor(
-                row: r,
-                column: c,
-                color: mediumGreen,
-              );
+              ..setCharacter(row: r, column: c, character: sc.mediumBlock)
+              ..setColor(row: r, column: c, color: mediumGreen);
             score++;
             updateInfo();
           }
@@ -531,16 +489,8 @@ class Game {
           final (r, c) = gameOverCells.first;
           gameOverCells.remove((r, c));
           terminal
-            ..setCharacter(
-              row: r,
-              column: c,
-              character: sc.lightBlock,
-            )
-            ..setColor(
-              row: r,
-              column: c,
-              color: red,
-            );
+            ..setCharacter(row: r, column: c, character: sc.lightBlock)
+            ..setColor(row: r, column: c, color: red);
         } else {
           terminal.output(
             'Game Over!',

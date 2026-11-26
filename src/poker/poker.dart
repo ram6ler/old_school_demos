@@ -1,13 +1,13 @@
-import 'package:web/web.dart' as web;
 import 'package:poker_simulations/poker_simulations.dart';
 import 'package:old_school/old_school.dart' as os;
 import 'package:old_school/special_characters.dart' as sc;
+
 import 'grid.dart';
 
 final terminal = os.Terminal(
       rows: 25,
       columns: 46,
-      container: web.document.getElementById('poker') as web.HTMLElement,
+      containerId: 'poker',
       rowGap: 0,
       backgroundColor: 'black',
       defaultColor: 'white',
@@ -78,21 +78,9 @@ void updateScreen() {
       row: 1,
       column: c,
     )
-    ..output(
-      '${sc.vertical}$nextCard${sc.vertical}',
-      row: 2,
-      column: c,
-    )
-    ..output(
-      '${sc.upRight}${sc.horizontal * 2}${sc.upLeft}',
-      row: 3,
-      column: c,
-    )
-    ..output(
-      'Human',
-      row: humanRowOffset - 1,
-      column: humanColumnOffset,
-    )
+    ..output('${sc.vertical}$nextCard${sc.vertical}', row: 2, column: c)
+    ..output('${sc.upRight}${sc.horizontal * 2}${sc.upLeft}', row: 3, column: c)
+    ..output('Human', row: humanRowOffset - 1, column: humanColumnOffset)
     ..output(
       'Computer',
       row: computerRowOffset - 1,
@@ -149,7 +137,7 @@ Future<void> computerMove() async {
   final record = {
         for (var r = 0; r < 5; r++)
           for (var c = 0; c < 5; c++)
-            if (!computerGrid.cardIsPlacedAt(r, c)) (r, c): 0.0
+            if (!computerGrid.cardIsPlacedAt(r, c)) (r, c): 0.0,
       },
       simulationsPerSquare = simulationsSetting ~/ record.length,
       virtualDeck = Deck.withCardsRemoved(deck.cardsRemoved);
@@ -164,7 +152,11 @@ Future<void> computerMove() async {
           continue;
         }
         virtualGrid.placeCardAt(
-            vR, vC, virtualDeck.take(1).first, scoringSystemSetting);
+          vR,
+          vC,
+          virtualDeck.take(1).first,
+          scoringSystemSetting,
+        );
       }
       record[(r, c)] =
           record[(r, c)]! + virtualGrid.scoreBoard() / simulationsPerSquare;
@@ -183,12 +175,12 @@ Future<void> computerMove() async {
 }
 
 void draw(Grid grid, int rowOffset, int columnOffset) {
-  String h(String left, String middle, String right) => '$left'
-      '${[
-        for (final _ in Iterable.generate(5)) sc.horizontal * 2
-      ].join(middle)}'
+  String h(String left, String middle, String right) =>
+      '$left'
+      '${[for (final _ in Iterable.generate(5)) sc.horizontal * 2].join(middle)}'
       '$right';
-  final e = '${sc.vertical}'
+  final e =
+      '${sc.vertical}'
       '${[for (final _ in Iterable.generate(5)) '  '].join(sc.vertical)}'
       '${sc.vertical}';
   terminal
